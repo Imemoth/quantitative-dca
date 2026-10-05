@@ -1,0 +1,41 @@
+# BLOCKED partial freeze; see reports/provider-decision-matrix.md.
+# IDs identify selected adapter designs, not working integrations or verified data.
+# Null means no eligible source selected. Never silently substitute candidates.
+# Credentials must come from environment variables; no credentials are stored here.
+providers:
+  - fred_alfred
+  - sec_pre_cutoff_filings
+domains:
+  us_macro_vintages:
+    primary: fred_alfred
+    fallback: null
+  eu_macro_vintages:
+    primary: null
+    fallback: null
+  us_ohlcv:
+    primary: null
+    fallback: null
+  eu_ohlcv:
+    primary: null
+    fallback: null
+  fx:
+    primary: null
+    fallback: null
+  us_fundamentals:
+    primary: sec_pre_cutoff_filings
+    fallback: null
+  eu_fundamentals:
+    primary: null
+    fallback: null
+  corporate_actions:
+    primary: null
+    fallback: null
+  historical_universe_delistings:
+    primary: null
+    fallback: null
+  sector_index_context:
+    primary: null
+    fallback: null
+  scheduled_event_calendars:
+    primary: null
+    fallback: null

@@ -1,0 +1,31 @@
+# A-priori software reference, NOT fitted, selected, calibrated, or financially validated.
+schema_version: 1
+model_version: interpretable-v1-heuristic-1
+interpretation: uncalibrated_heuristic_membership
+# Round reference levels give readable dimensionless coordinates. These are
+# fixed reference scores, NOT empirical z-scores or whole-history normalization.
+centers: {market_trend: 0.0, vol_z: 20.0, credit_z: 4.0}
+scales: {market_trend: 0.05, vol_z: 10.0, credit_z: 2.0}
+input_units:
+  broad_market_momentum_20d_raw: fractional_return
+  vix_level_raw: index_points
+  high_yield_spread_raw: percentage_points
+# Equal weights avoid claiming an empirically established hierarchy. Unit
+# temperature uses unaltered distances. Clipping bounds outlier influence.
+weights: {market_trend: 1.0, vol_z: 1.0, credit_z: 1.0}
+temperature: 1.0
+clip: 4.0
+# Qualitative ordered anchors: positive trend/calm; negative trend/moderate
+# risk; elevated risk; severe joint risk/downtrend; rebound with easing risk.
+prototypes:
+  EXPANSION_RISK_ON: {market_trend: 1.0, vol_z: -1.0, credit_z: -1.0}
+  CORRECTION: {market_trend: -1.0, vol_z: 0.0, credit_z: 0.0}
+  HIGH_VOL_STRESS: {market_trend: 0.0, vol_z: 2.0, credit_z: 1.0}
+  CRISIS: {market_trend: -2.0, vol_z: 3.0, credit_z: 3.0}
+  RECOVERY: {market_trend: 1.0, vol_z: 0.0, credit_z: 0.0}
+# One prior eligible benchmark session prevents discretionary history picking.
+# Prior stress >= one reference unit; rebound strictly above zero trend;
+# both risk dimensions must not rise, with at least one strictly falling.
+recovery_lookback_sessions: 1
+recovery_stress_threshold: 1.0
+recovery_rebound_threshold: 0.0

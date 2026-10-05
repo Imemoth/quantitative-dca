@@ -1,0 +1,24 @@
+# V1 fejlesztési állapot — 2026-10-05
+
+A projekt aktív. A korábbi dokumentációs incidenst a felhasználó elfogadta, és engedélyezte a folytatást. Az eredeti BLOCKED riportok történeti feljegyzések; nem a jelenlegi munkavégzési engedélyt jelentik.
+
+- Foundation Task 1–10: implementálva, tesztelve, feladatonkénti független review után lezárva.
+- A Foundation szoftveres/PIT kapuja TELJESÜLT: F1/F3/F4/F5/F6 a közös javítás után lezárva; F2/R1 a külön jóváhagyott `17bea46` javítás után független spec PASS / quality PASS eredményt kapott.
+- A javított függőségkezelésben a későbbi, független osztalék nem késlelteti a korábbi címkét; az adott vételi ablakot érintő esemény korrekciójának elérhetősége és származása viszont megmarad. Friss teljes tesztfutás: 394 sikeres teszt, 1,93 másodperc.
+- A Features/Targets/Regimes alprojekt mind a 10 feladata és az átfogó review javításai lezárultak: független spec PASS / code-quality PASS. Task 10: `c6e8715` + `02a61d8`; végső integrációs javítás: `41db8f6`. Friss ellenőrzés: 410 alprojekt-teszt / 804 teljes teszt sikeres; compileall és git diff --check sikeres. Az imputáló target-névszűrése, a rangsorolási univerzum egyeztetése és a peer-árak frissessége javítva. Bizonyíték: `reports/features-final-fix-review.md`; összesített checkpoint: `reports/features-targets-regimes-checkpoint.md`. A rezsimágak pénzügyileg még nem validált szoftveres jelöltek. Task 0 valós adatforrás-minősítése hiányos.
+- A regiszter81 kimenetet rögzít, a két rezsimág5+8 fenntartott helyével legfeljebb94 tervezett feature. A Task1 review után a történeti univerzum-percentilis, a splithelyes USD-forgalom és az azonosítóváltozatok tiltása is a szerződés része.
+- FRED: négy US havi makrosor, valamint a 2 és 10 éves hozamsor nyers megfigyelései ténylegesen megérkeztek, legfeljebb2023-as megfigyelési és vintage-határokkal. Még nem minősített, nem modellbe engedett adatok.
+- A korábban sikertelen hozamlekéréseknél igazolt vintage-darabszámkorlátot kisebb, előre dátumkorlátozott kérésekkel kezeltük; az átfedő intervallumok összeillesztése még ellenőrzendő. A teljes US/EU részvénypanel, történeti univerzum, fundamentumok, corporate actions és FX továbbra is adatforrás-auditot igényelnek.
+- Nem készült modellkutatási/OOS eredmény vagy javasolt frozen V1 konfiguráció. A sikeres fixture-tesztek nem befektetési bizonyítékok.
+
+A fejlesztés kizárólag 2010–2023-as adatokkal végezhető; a hálózati lekérések observation és vintage végdátuma elküldés előtt korlátozott. A 2024–2026-os RETROSPECTIVE HOLDOUT nem futott le. A korábbi incidenst nem tekintjük meg nem történtnek; pristine historikus lockboxot nem állítunk.
+
+A jóváhagyott F2/R1 kör lezárult. Hat új regressziós eset előbb reprodukálta a hibát, majd a javítással sikeresen futott: teljes eseménytörténet melletti 5/20/60 napos címkehasználhatóság és eseményt az ablakba vagy abból kimozdító korrekciók. A csak legfrissebb eseményállapotot tartalmazó adat nem pótolja a szükséges verziótörténetet; ez továbbra is adatminősítési korlát.
+
+A `subagent-driven-development` eljárás szerinti külön implementáló és reviewer ellenőrizte a célzott javítást. A korábbi hibás állapot és FAIL riportok történeti bizonyítékként megmaradnak; az aktuális lezárás bizonyítéka: `reports/foundation-r1-authorized-fix.md` és `reports/foundation-r1-authorized-review.md`. A második alprojekt szoftveres előfeltétele teljesült; a valós adatok kutatási befogadása és a Task0 nem lett ezzel automatikusan kész.
+
+Hátralévő munka: a valós adatpanel auditja/befogadása és valós paneles leakage-kapu, majd 13 modell/policy/validációs feladat és a fejlesztési bizonyítékokból javasolt frozen konfiguráció. SEC történeti indexek és egy eredeti2010-es jelentés, illetve egy US demórészvény2010–2023-as napi sorozata ténylegesen letöltve, de kutatási panelként még nem minősítve. Az MNB2023-12-29-i referenciaárfolyam-minta továbbra is RAW_ONLY/qualityNULL; a későbbi dokumentációkeresési hozzáférési incidens külön dokumentált. Audit: reports/development-panel-audit-followup.md és reports/mnb-search-access-incident-2026-09-17.md.
+
+A Task 7 utáni megállás és jelzés megtörtént; a Task 8 folytatása engedélyezett. Pénzügyi kutatás csak mind a 10 feladat review PASS állapota, tényleges PIT panel, quality/admission riport és valós paneles leakage PASS együttes teljesülése után indulhat. Most pénzügyi/OOS futások száma 0.
+
+2026-09-17: a Task 4 review három hibát talált; az `e789525` javítás mindet lezárta, független PASS-szal. A külön MNB dokumentációkeresés két eredménye tiltott 2026-os árfolyamokat jelenített meg. Ezek nem kerültek kutatási felhasználásra vagy adatpanelbe; a hozzáférési incidens dokumentált: `reports/mnb-search-access-incident-2026-09-17.md`. További audit-hálózati kérés ebben a munkaszakaszban nincs. Ez nem holdout-futtatás, de nem állítható kizárt adatoktól teljesen érintetlen munkamenet.

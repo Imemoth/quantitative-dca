@@ -1,0 +1,1068 @@
+# Frozen V1 feature-definition contract. This is a controlled design schema,
+# not empirical feature selection and not evidence of provider capability.
+schema_version: 1
+registry_version: features-v1
+panel_budget:
+  final_min: 80
+  final_max: 95
+  registered_feature_count: 81
+  reserved_interpretable_regime_slots: 5
+  reserved_unsupervised_regime_slots: 8
+dependencies:
+  price_history:
+    name: "ohlcv.daily_bars"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: verified_corporate_action_adjusted_feature_price
+    required_provenance: [price_basis, corporate_action_lineage]
+  corporate_actions:
+    name: "corporate_actions.events"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: announced_action_vintage
+    required_provenance: [action_id, action_type, effective_date]
+  unadjusted_close:
+    name: "ohlcv.unadjusted_close"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: canonical_unadjusted_close
+    required_provenance: [price_basis=unadjusted]
+  original_unit_volume:
+    name: "ohlcv.original_unit_volume"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: verified_original_share_units
+    required_provenance: [volume_basis=original_share_units]
+  historical_currency:
+    name: "security.historical_currency"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: listing_currency_at_historical_eod
+    required_provenance: [currency, active_from, active_to]
+  fx_quotes:
+    name: "fx.quotes"
+    availability_field: available_at
+    join_rule: "fixing_at <= historical_eod and available_at <= historical_eod"
+    revision_policy: as_of_vintage
+    value_basis: quote_currency_units_per_base_currency
+    required_provenance: [base_currency, quote_currency, fixing_at, quote_type=spot]
+  membership:
+    name: "universe.historical_membership"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: historical_active_interval
+    required_provenance: [active_from, active_to, exchange, region]
+  classification:
+    name: "classification.point_in_time"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: point_in_time_classification
+    required_provenance: [effective_date, classification_version]
+  fundamentals:
+    name: "fundamentals.reported_vintages"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: latest_reported_vintage_known_at_prediction
+    required_provenance: [period_end, published_at, revision_id]
+  macro:
+    name: "macro.realtime_vintages"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: realtime_macro_vintage
+    required_provenance: [observation_date, published_at, revision_id]
+  market:
+    name: "market_context.daily_bars"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: verified_market_context_series
+    required_provenance: [market_session, source, revision_id]
+  event_calendar:
+    name: "events.announced_calendar"
+    availability_field: available_at
+    join_rule: "available_at <= prediction_timestamp"
+    revision_policy: as_of_vintage
+    value_basis: event_date_announced_by_prediction
+    required_provenance: [announced_at, event_date, revision_id]
+features:
+  - name: return_5d_raw
+    domain: price_trend
+    base_signal: return_5d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 6
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: raw
+    formula: "adjusted_close_t / adjusted_close_t_minus_5 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: return_20d_raw
+    domain: price_trend
+    base_signal: return_20d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 21
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: raw
+    formula: "adjusted_close_t / adjusted_close_t_minus_20 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: return_60d_raw
+    domain: price_trend
+    base_signal: return_60d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 61
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: raw
+    formula: "adjusted_close_t / adjusted_close_t_minus_60 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: return_120d_raw
+    domain: price_trend
+    base_signal: return_120d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 121
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: raw
+    formula: "adjusted_close_t / adjusted_close_t_minus_120 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: return_252d_raw
+    domain: price_trend
+    base_signal: return_252d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 253
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: raw
+    formula: "adjusted_close_t / adjusted_close_t_minus_252 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: distance_ma20_raw
+    domain: price_trend
+    base_signal: distance_ma20
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 20
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: ratio_minus_one
+    formula: "adjusted_close_t / mean_adjusted_close_20 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: distance_ma50_raw
+    domain: price_trend
+    base_signal: distance_ma50
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 50
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: ratio_minus_one
+    formula: "adjusted_close_t / mean_adjusted_close_50 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: distance_ma200_raw
+    domain: price_trend
+    base_signal: distance_ma200
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 200
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: ratio_minus_one
+    formula: "adjusted_close_t / mean_adjusted_close_200 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: distance_52week_high_raw
+    domain: price_trend
+    base_signal: distance_52week_high
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 252
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: ratio_minus_one
+    formula: "adjusted_close_t / rolling_high_adjusted_close_252 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: trend_slope_20d_normalized
+    domain: price_trend
+    base_signal: trend_slope_20d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 20
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: normalized_ols_slope
+    formula: "ols_slope_log_adjusted_close_20 / residual_scale_20"
+    normalization: rolling_scale
+    applicability: positive_price_history
+    missing_policy: preserve_missing
+  - name: trend_slope_60d_normalized
+    domain: price_trend
+    base_signal: trend_slope_60d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 60
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: normalized_ols_slope
+    formula: "ols_slope_log_adjusted_close_60 / residual_scale_60"
+    normalization: rolling_scale
+    applicability: positive_price_history
+    missing_policy: preserve_missing
+  - name: realized_volatility_20d_raw
+    domain: volatility_drawdown
+    base_signal: realized_volatility_20d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 21
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: annualized_std
+    formula: "std_log_return_20 * sqrt_252"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: realized_volatility_60d_raw
+    domain: volatility_drawdown
+    base_signal: realized_volatility_60d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 61
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: annualized_std
+    formula: "std_log_return_60 * sqrt_252"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: volatility_ratio_20d_60d_raw
+    domain: volatility_drawdown
+    base_signal: volatility_ratio_20d_60d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 61
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: ratio
+    formula: "realized_volatility_20d / realized_volatility_60d"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: downside_volatility_60d_raw
+    domain: volatility_drawdown
+    base_signal: downside_volatility_60d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 61
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: annualized_downside_std
+    formula: "std_min_log_return_zero_60 * sqrt_252"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: atr_20d_percent_price_raw
+    domain: volatility_drawdown
+    base_signal: atr_20d_percent_price
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 21
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: ratio
+    formula: "mean_true_range_20 / adjusted_close_t"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: current_drawdown_raw
+    domain: volatility_drawdown
+    base_signal: current_drawdown
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 253
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: ratio_minus_one
+    formula: "adjusted_close_t / running_peak_adjusted_close_252 - 1"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: maximum_drawdown_60d_raw
+    domain: volatility_drawdown
+    base_signal: maximum_drawdown_60d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 60
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: rolling_min_drawdown
+    formula: "minimum_peak_to_trough_return_60"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: maximum_drawdown_252d_raw
+    domain: volatility_drawdown
+    base_signal: maximum_drawdown_252d
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 252
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: rolling_min_drawdown
+    formula: "minimum_peak_to_trough_return_252"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: drawdown_duration_sessions_raw
+    domain: volatility_drawdown
+    base_signal: drawdown_duration_sessions
+    raw_dependencies: [price_history, corporate_actions]
+    lookback_sessions: 252
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: session_count
+    formula: "sessions_since_latest_adjusted_close_peak_within_252"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: median_dollar_volume_20d_log
+    domain: volume_liquidity
+    base_signal: median_dollar_volume_20d
+    raw_dependencies: [unadjusted_close, original_unit_volume, historical_currency, fx_quotes]
+    lookback_sessions: 20
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: log1p
+    formula: "log1p_median_unadjusted_close_times_original_unit_volume_times_local_to_usd_fx_at_each_historical_eod_20"
+    normalization: log_scale
+    applicability: requires_pit_fx_conversion_to_usd
+    missing_policy: preserve_missing
+  - name: amihud_illiquidity_20d_log
+    domain: volume_liquidity
+    base_signal: amihud_illiquidity_20d
+    raw_dependencies: [price_history, corporate_actions, unadjusted_close, original_unit_volume, historical_currency, fx_quotes]
+    lookback_sessions: 21
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: log1p
+    formula: "log1p_mean_abs_adjusted_economic_return_over_unadjusted_close_times_original_unit_volume_times_local_to_usd_fx_at_each_historical_eod_20"
+    normalization: log_scale
+    applicability: requires_pit_fx_conversion_to_usd
+    missing_policy: preserve_missing
+  - name: return_relative_sector_20d_raw
+    domain: relative_strength
+    base_signal: return_relative_sector_20d
+    raw_dependencies: [price_history, market, classification, membership, corporate_actions]
+    lookback_sessions: 21
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: difference
+    formula: "return_20d - eligible_sector_benchmark_return_20d"
+    normalization: none
+    applicability: eligible_sector_members
+    missing_policy: preserve_missing
+  - name: return_relative_sector_60d_raw
+    domain: relative_strength
+    base_signal: return_relative_sector_60d
+    raw_dependencies: [price_history, market, classification, membership, corporate_actions]
+    lookback_sessions: 61
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: difference
+    formula: "return_60d - eligible_sector_benchmark_return_60d"
+    normalization: none
+    applicability: eligible_sector_members
+    missing_policy: preserve_missing
+  - name: return_relative_sector_120d_raw
+    domain: relative_strength
+    base_signal: return_relative_sector_120d
+    raw_dependencies: [price_history, market, classification, membership, corporate_actions]
+    lookback_sessions: 121
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: difference
+    formula: "return_120d - eligible_sector_benchmark_return_120d"
+    normalization: none
+    applicability: eligible_sector_members
+    missing_policy: preserve_missing
+  - name: return_relative_market_20d_raw
+    domain: relative_strength
+    base_signal: return_relative_market_20d
+    raw_dependencies: [price_history, market, membership, corporate_actions]
+    lookback_sessions: 21
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: difference
+    formula: "return_20d - regional_broad_market_return_20d"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: return_relative_market_60d_raw
+    domain: relative_strength
+    base_signal: return_relative_market_60d
+    raw_dependencies: [price_history, market, membership, corporate_actions]
+    lookback_sessions: 61
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: difference
+    formula: "return_60d - regional_broad_market_return_60d"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: return_relative_market_120d_raw
+    domain: relative_strength
+    base_signal: return_relative_market_120d
+    raw_dependencies: [price_history, market, membership, corporate_actions]
+    lookback_sessions: 121
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: difference
+    formula: "return_120d - regional_broad_market_return_120d"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: momentum_sector_percentile
+    domain: relative_strength
+    base_signal: momentum_sector_percentile
+    raw_dependencies: [price_history, classification, membership, corporate_actions]
+    lookback_sessions: 121
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: eligible_percentile
+    formula: "percentile_rank_return_120d_within_eligible_sector"
+    normalization: eligible_sector_percentile_as_of
+    applicability: eligible_sector_members
+    missing_policy: preserve_missing
+  - name: momentum_universe_percentile
+    domain: relative_strength
+    base_signal: momentum_universe_percentile
+    raw_dependencies: [price_history, membership, corporate_actions]
+    lookback_sessions: 121
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: eligible_percentile
+    formula: "percentile_rank_return_120d_within_historical_eligible_universe"
+    normalization: eligible_universe_percentile_as_of
+    applicability: historical_eligible_universe_members
+    missing_policy: preserve_missing
+  - name: revenue_growth_yoy_raw
+    domain: fundamentals
+    base_signal: revenue_growth_yoy
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: raw
+    formula: "latest_reported_revenue_yoy_growth"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: eps_growth_yoy_raw
+    domain: fundamentals
+    base_signal: eps_growth_yoy
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: raw
+    formula: "latest_reported_diluted_eps_yoy_growth"
+    normalization: none
+    applicability: positive_and_negative_eps_supported
+    missing_policy: preserve_missing
+  - name: fcf_growth_yoy_raw
+    domain: fundamentals
+    base_signal: fcf_growth_yoy
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: raw
+    formula: "latest_reported_free_cash_flow_yoy_growth"
+    normalization: none
+    applicability: non_financials_when_economically_meaningful
+    missing_policy: structural_missing_not_imputed
+  - name: gross_margin_raw
+    domain: fundamentals
+    base_signal: gross_margin
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "latest_reported_gross_profit / revenue"
+    normalization: none
+    applicability: sectors_with_meaningful_gross_profit
+    missing_policy: structural_missing_not_imputed
+  - name: operating_margin_raw
+    domain: fundamentals
+    base_signal: operating_margin
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "latest_reported_operating_income / revenue"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: fcf_margin_raw
+    domain: fundamentals
+    base_signal: fcf_margin
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "latest_reported_free_cash_flow / revenue"
+    normalization: none
+    applicability: non_financials_when_economically_meaningful
+    missing_policy: structural_missing_not_imputed
+  - name: roic_raw
+    domain: fundamentals
+    base_signal: roic
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "latest_reported_nopat / invested_capital"
+    normalization: none
+    applicability: non_financials_when_economically_meaningful
+    missing_policy: structural_missing_not_imputed
+  - name: roe_raw
+    domain: fundamentals
+    base_signal: roe
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "latest_reported_net_income / average_equity"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: net_debt_to_ebitda_raw
+    domain: fundamentals
+    base_signal: net_debt_to_ebitda
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "latest_reported_net_debt / trailing_ebitda"
+    normalization: none
+    applicability: non_financials_when_economically_meaningful
+    missing_policy: structural_missing_not_imputed
+  - name: interest_coverage_raw
+    domain: fundamentals
+    base_signal: interest_coverage
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "latest_reported_ebit / interest_expense"
+    normalization: none
+    applicability: companies_with_meaningful_interest_expense
+    missing_policy: structural_missing_not_imputed
+  - name: share_dilution_yoy_raw
+    domain: fundamentals
+    base_signal: share_dilution_yoy
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: percent_change
+    formula: "latest_diluted_shares / prior_year_diluted_shares - 1"
+    normalization: none
+    applicability: companies_with_comparable_share_counts
+    missing_policy: preserve_missing
+  - name: last_known_earnings_surprise_raw
+    domain: fundamentals
+    base_signal: last_known_earnings_surprise
+    raw_dependencies: [fundamentals]
+    lookback_sessions: 0
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: standardized_difference
+    formula: "latest_reported_eps - point_in_time_consensus_eps"
+    normalization: consensus_scale
+    applicability: reliable_point_in_time_estimate_history
+    missing_policy: preserve_missing
+  - name: trailing_pe_raw
+    domain: valuation
+    base_signal: trailing_pe
+    raw_dependencies: [fundamentals, price_history]
+    lookback_sessions: 1
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "adjusted_close_t / trailing_eps"
+    normalization: none
+    applicability: positive_trailing_eps
+    missing_policy: preserve_missing
+  - name: trailing_pe_sector_percentile
+    domain: valuation
+    base_signal: trailing_pe
+    raw_dependencies: [fundamentals, price_history, classification, membership]
+    lookback_sessions: 1
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: eligible_percentile
+    formula: "percentile_rank_trailing_pe_within_eligible_sector"
+    normalization: eligible_sector_percentile_as_of
+    applicability: positive_trailing_eps_in_eligible_sector
+    missing_policy: preserve_missing
+  - name: trailing_pe_own_history_zscore
+    domain: valuation
+    base_signal: trailing_pe
+    raw_dependencies: [fundamentals, price_history]
+    lookback_sessions: 756
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: trailing_zscore
+    formula: "trailing_pe_t_minus_trailing_mean_756_over_trailing_std_756"
+    normalization: trailing_history_as_of
+    applicability: positive_trailing_eps_with_sufficient_history
+    missing_policy: preserve_missing
+  - name: ev_to_ebitda_raw
+    domain: valuation
+    base_signal: ev_to_ebitda
+    raw_dependencies: [fundamentals, price_history]
+    lookback_sessions: 1
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "enterprise_value_as_of / trailing_ebitda"
+    normalization: none
+    applicability: non_financials_when_economically_meaningful
+    missing_policy: structural_missing_not_imputed
+  - name: ev_to_ebitda_sector_percentile
+    domain: valuation
+    base_signal: ev_to_ebitda
+    raw_dependencies: [fundamentals, price_history, classification, membership]
+    lookback_sessions: 1
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: eligible_percentile
+    formula: "percentile_rank_ev_to_ebitda_within_eligible_sector"
+    normalization: eligible_sector_percentile_as_of
+    applicability: applicable_non_financial_eligible_sector
+    missing_policy: structural_missing_not_imputed
+  - name: ev_to_ebitda_own_history_zscore
+    domain: valuation
+    base_signal: ev_to_ebitda
+    raw_dependencies: [fundamentals, price_history]
+    lookback_sessions: 756
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: trailing_zscore
+    formula: "ev_to_ebitda_t_minus_trailing_mean_756_over_trailing_std_756"
+    normalization: trailing_history_as_of
+    applicability: applicable_non_financial_with_sufficient_history
+    missing_policy: structural_missing_not_imputed
+  - name: price_to_sales_raw
+    domain: valuation
+    base_signal: price_to_sales
+    raw_dependencies: [fundamentals, price_history]
+    lookback_sessions: 1
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "market_cap_as_of / trailing_revenue"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: fcf_yield_raw
+    domain: valuation
+    base_signal: fcf_yield
+    raw_dependencies: [fundamentals, price_history]
+    lookback_sessions: 1
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: ratio
+    formula: "trailing_free_cash_flow / market_cap_as_of"
+    normalization: none
+    applicability: non_financials_when_economically_meaningful
+    missing_policy: structural_missing_not_imputed
+  - name: fcf_yield_sector_percentile
+    domain: valuation
+    base_signal: fcf_yield
+    raw_dependencies: [fundamentals, price_history, classification, membership]
+    lookback_sessions: 1
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: eligible_percentile
+    formula: "percentile_rank_fcf_yield_within_eligible_sector"
+    normalization: eligible_sector_percentile_as_of
+    applicability: applicable_non_financial_eligible_sector
+    missing_policy: structural_missing_not_imputed
+  - name: fcf_yield_own_history_zscore
+    domain: valuation
+    base_signal: fcf_yield
+    raw_dependencies: [fundamentals, price_history]
+    lookback_sessions: 756
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: trailing_zscore
+    formula: "fcf_yield_t_minus_trailing_mean_756_over_trailing_std_756"
+    normalization: trailing_history_as_of
+    applicability: applicable_non_financial_with_sufficient_history
+    missing_policy: structural_missing_not_imputed
+  - name: broad_market_momentum_20d_raw
+    domain: market_cross_asset
+    base_signal: broad_market_momentum_20d
+    raw_dependencies: [market, corporate_actions]
+    lookback_sessions: 21
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: return
+    formula: "regional_broad_market_close_t / close_t_minus_20 - 1"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: broad_market_momentum_60d_raw
+    domain: market_cross_asset
+    base_signal: broad_market_momentum_60d
+    raw_dependencies: [market, corporate_actions]
+    lookback_sessions: 61
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: return
+    formula: "regional_broad_market_close_t / close_t_minus_60 - 1"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: sector_momentum_20d_raw
+    domain: market_cross_asset
+    base_signal: sector_momentum_20d
+    raw_dependencies: [market, classification, corporate_actions]
+    lookback_sessions: 21
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: return
+    formula: "sector_benchmark_close_t / close_t_minus_20 - 1"
+    normalization: none
+    applicability: mapped_sector_benchmark
+    missing_policy: preserve_missing
+  - name: sector_momentum_60d_raw
+    domain: market_cross_asset
+    base_signal: sector_momentum_60d
+    raw_dependencies: [market, classification, corporate_actions]
+    lookback_sessions: 61
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: return
+    formula: "sector_benchmark_close_t / close_t_minus_60 - 1"
+    normalization: none
+    applicability: mapped_sector_benchmark
+    missing_policy: preserve_missing
+  - name: vix_level_raw
+    domain: market_cross_asset
+    base_signal: vix_level
+    raw_dependencies: [market]
+    lookback_sessions: 1
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: raw
+    formula: "latest_vix_close"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: vix_acceleration_raw
+    domain: market_cross_asset
+    base_signal: vix_level
+    raw_dependencies: [market]
+    lookback_sessions: 43
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: difference_of_changes
+    formula: "vix_change_20d - prior_vix_change_20d"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: days_to_announced_earnings_raw
+    domain: event_calendar
+    base_signal: days_to_announced_earnings
+    raw_dependencies: [event_calendar]
+    lookback_sessions: 0
+    availability_rule: known_event_date_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: trading_session_distance
+    formula: "sessions_until_next_announced_earnings"
+    normalization: none
+    applicability: announced_future_event_only
+    missing_policy: preserve_missing
+  - name: announced_earnings_within_5d
+    domain: event_calendar
+    base_signal: days_to_announced_earnings
+    raw_dependencies: [event_calendar]
+    lookback_sessions: 0
+    availability_rule: known_event_date_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: threshold
+    formula: "one_if_days_to_announced_earnings_between_0_and_5"
+    normalization: none
+    applicability: announced_future_event_only
+    missing_policy: preserve_missing
+  - name: announced_earnings_within_20d
+    domain: event_calendar
+    base_signal: days_to_announced_earnings
+    raw_dependencies: [event_calendar]
+    lookback_sessions: 0
+    availability_rule: known_event_date_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: threshold
+    formula: "one_if_days_to_announced_earnings_between_0_and_20"
+    normalization: none
+    applicability: announced_future_event_only
+    missing_policy: preserve_missing
+  - name: days_to_relevant_policy_decision_raw
+    domain: event_calendar
+    base_signal: days_to_relevant_policy_decision
+    raw_dependencies: [event_calendar, classification]
+    lookback_sessions: 0
+    availability_rule: known_event_date_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: trading_session_distance
+    formula: "sessions_until_next_announced_relevant_policy_decision"
+    normalization: none
+    applicability: security_monetary_jurisdiction
+    missing_policy: preserve_missing
+  - name: major_policy_event_within_5d
+    domain: event_calendar
+    base_signal: days_to_relevant_policy_decision
+    raw_dependencies: [event_calendar, classification]
+    lookback_sessions: 0
+    availability_rule: known_event_date_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: threshold
+    formula: "one_if_days_to_relevant_policy_decision_between_0_and_5"
+    normalization: none
+    applicability: security_monetary_jurisdiction
+    missing_policy: preserve_missing
+  - name: days_to_relevant_inflation_release_raw
+    domain: event_calendar
+    base_signal: days_to_relevant_inflation_release
+    raw_dependencies: [event_calendar, classification]
+    lookback_sessions: 0
+    availability_rule: known_event_date_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: trading_session_distance
+    formula: "sessions_until_next_announced_cpi_or_hicp_release"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: region_category
+    domain: structural
+    base_signal: region_category
+    raw_dependencies: [classification, membership]
+    lookback_sessions: 0
+    availability_rule: historical_membership_as_of_prediction
+    quality_floor: C
+    transform: categorical
+    formula: "historical_region_at_prediction"
+    normalization: categorical
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: sector_category
+    domain: structural
+    base_signal: sector_category
+    raw_dependencies: [classification, membership]
+    lookback_sessions: 0
+    availability_rule: historical_membership_as_of_prediction
+    quality_floor: C
+    transform: categorical
+    formula: "historical_sector_at_prediction"
+    normalization: categorical
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: market_cap_bucket
+    domain: structural
+    base_signal: market_cap_bucket
+    raw_dependencies: [fundamentals, unadjusted_close, historical_currency, fx_quotes, membership]
+    lookback_sessions: 1
+    availability_rule: reported_value_as_of_prediction_then_next_eod
+    quality_floor: B
+    transform: controlled_bucket
+    formula: "bucket_market_cap_as_of"
+    normalization: categorical
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: beta_bucket
+    domain: structural
+    base_signal: beta_bucket
+    raw_dependencies: [price_history, market, corporate_actions]
+    lookback_sessions: 253
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: C
+    transform: controlled_bucket
+    formula: "bucket_trailing_beta_252"
+    normalization: categorical
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
+  - name: headline_inflation_level_raw
+    domain: macro
+    base_signal: headline_inflation
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: raw
+    formula: "latest_released_headline_cpi_or_hicp_level"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: core_inflation_level_raw
+    domain: macro
+    base_signal: core_inflation
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: raw
+    formula: "latest_released_core_cpi_or_hicp_level"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: unemployment_rate_level_raw
+    domain: macro
+    base_signal: unemployment_rate
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: raw
+    formula: "latest_released_unemployment_rate"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: policy_rate_level_raw
+    domain: macro
+    base_signal: policy_rate
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: raw
+    formula: "latest_released_relevant_central_bank_policy_rate"
+    normalization: none
+    applicability: security_monetary_jurisdiction
+    missing_policy: preserve_missing
+  - name: policy_rate_change_3m_raw
+    domain: macro
+    base_signal: policy_rate
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: difference
+    formula: "latest_policy_rate - policy_rate_three_months_prior_as_known"
+    normalization: none
+    applicability: security_monetary_jurisdiction
+    missing_policy: preserve_missing
+  - name: us_yield_curve_10y_2y_raw
+    domain: macro
+    base_signal: us_yield_curve_10y_2y
+    raw_dependencies: [macro]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: difference
+    formula: "us_treasury_10y_yield - us_treasury_2y_yield"
+    normalization: none
+    applicability: region_us
+    missing_policy: preserve_missing
+  - name: us_yield_curve_10y_3m_raw
+    domain: macro
+    base_signal: us_yield_curve_10y_3m
+    raw_dependencies: [macro]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: difference
+    formula: "us_treasury_10y_yield - us_treasury_3m_yield"
+    normalization: none
+    applicability: region_us
+    missing_policy: preserve_missing
+  - name: eu_sovereign_curve_proxy_raw
+    domain: macro
+    base_signal: eu_sovereign_curve_proxy
+    raw_dependencies: [macro]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: controlled_spread
+    formula: "euro_or_eu_sovereign_long_rate - relevant_short_rate"
+    normalization: none
+    applicability: region_eu
+    missing_policy: preserve_missing
+  - name: high_yield_spread_raw
+    domain: macro
+    base_signal: high_yield_spread
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: raw
+    formula: "latest_released_regional_high_yield_spread"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: investment_grade_spread_raw
+    domain: macro
+    base_signal: investment_grade_spread
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: raw
+    formula: "latest_released_regional_investment_grade_spread"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: financial_conditions_level_raw
+    domain: macro
+    base_signal: financial_conditions
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: raw
+    formula: "latest_released_regional_financial_conditions_proxy"
+    normalization: none
+    applicability: security_region
+    missing_policy: preserve_missing
+  - name: central_bank_liquidity_change_3m_raw
+    domain: macro
+    base_signal: central_bank_liquidity
+    raw_dependencies: [macro, classification]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: percent_change
+    formula: "latest_central_bank_balance_sheet / level_three_months_prior_as_known - 1"
+    normalization: none
+    applicability: security_monetary_jurisdiction
+    missing_policy: preserve_missing
+  - name: global_risk_off_level_raw
+    domain: macro
+    base_signal: global_risk_off
+    raw_dependencies: [macro]
+    lookback_sessions: 0
+    availability_rule: next_eod_after_all_inputs_available
+    quality_floor: B
+    transform: raw
+    formula: "latest_released_broad_global_risk_off_proxy"
+    normalization: none
+    applicability: all_eligible_equities
+    missing_policy: preserve_missing
