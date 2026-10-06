@@ -1,4 +1,30 @@
-# V1 fejlesztési állapot — 2026-10-05
+# V1 aktuális állapot — 2026-10-06
+
+Aktuális ág: `research/data-acquisition-admission-closure`, alap: `e58bf60`.
+**DCA_RESEARCH_GATE = BLOCKED_BY_DATA.** A Foundation, Features/Targets/Regimes
+és Recession Core szoftveres kapuja teljesült; tényleges befogadott PIT panel nincs.
+
+- Teljes ellenőrzés: 954 teszt PASS; compileall és diff-check PASS.
+- Új nyers bizonyíték: 430 kivezetett amerikai listing, 2 split, 34 osztalékrekord.
+  Kilenc korábbi FRED-capture 13 435 vintage sora szerkezetileg ellenőrizve.
+- Befogadott adatcsalád: 0; befogadott sor/értékpapír: 0/0; US/EU lefedettség: nincs.
+- Valós paneles leakage és historikus recessziós diagnosztika: BLOCKED, nem futott.
+- Pénzügyi modell/OOS futások: 0/0. Retrospective holdout: NOT RUN / NOT PRISTINE.
+- Négy befejezett, előre dátumkorlátozott adatlekérés; egy korábbi megszakadt próba
+  elküldött kéréseinek száma ismeretlen. Dokumentációs/keresési kivonatokban történt
+  véletlen 2024+ kitettség, dokumentálva; ezek nem kerültek panelbe vagy kutatásba.
+
+A befogadási hiányokat és a legszűkebb lehetséges megoldásokat a
+`development-panel-admission.md`, `provider-decision-matrix.md` és a
+`real-panel-leakage-report.md` tartalmazza. Az incidens:
+`source-search-access-incident-2026-10-06.md`. Nincs fizetős vásárlás, új modellág,
+Macro Risk Gate vagy production-handoff. A review/checkpoint után emberi döntés
+szükséges; a következő modellkutatási szakasz nem indul automatikusan.
+
+Az alábbi korábbi státusz teljes egészében történeti bizonyíték; annak nulla
+hálózati hozzáférése kizárólag a 2026-10-05-i munkaszakaszra vonatkozik.
+
+# Történeti V1 fejlesztési állapot — 2026-10-05
 
 ## Legfrissebb munkaszakasz: Data Admission + Recession Risk Core
 

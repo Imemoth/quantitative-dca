@@ -67,3 +67,29 @@ Task 3 verification: 954 PASS in 67.96s; compileall and diff-check PASS. Frozen
 feature/target/regime/spec paths have no diff from e58bf60. The existing 3,522-bar
 sample also has unique dates, finite numbers, valid ranges and nonnegative volume;
 this does not establish session completeness or original volume economics.
+
+Task 4: final independent code-quality PASS (43 focused tests), spec PASS and
+data-admission-review PASS for an honest BLOCKED assessment (46 focused tests).
+Reviewer independently reproduced 18 raw hashes, nine FRED profiles and blocked
+preflight. See acquisition-independent-reviews.md. Interrupted earlier reviewers
+had only provisional feedback; final verdicts are recorded from completed reviews.
+
+Final: fixed stale current-status exposure ambiguity — regraded Important because
+the document could wrongly describe the latest phase as zero access; added current
+status and preserved full historical body. Documentation-only, no code behavior
+or test assertion changed. Independent spec reviewer inspected the supersession.
+Final: minor (deferred): original plan checkboxes/dual-status interface remain
+historical; final checkpoint task table and this ledger record actual scope.
+Final: Ruling: declined actual-panel/PIT/calendar/rights/vendor-cost/performance
+claims remain unverified — hashes and software tests do not prove them — cost:
+these evidence gates still need to be completed before research authorization.
+Final: Ruling: production readiness and wheel packaging remain out of scope — user
+prohibits production work — cost: source checkout/private replay fixture is needed
+for reproduction; no standalone distribution guarantee.
+
+Fresh final suite: 954 PASS in 61.77s; compileall and working-tree diff-check PASS.
+Git fsck --full PASS. Frozen method paths unchanged. Public-range scan: no raw data,
+database/binary checkpoint files or credential signatures in changed tracked files.
+Byte-exact archived CSV CRLF is deliberately retained; range check with cr-at-eol
+PASS. Raw captures remain external to Git; private evidence archive is not admission.
+No new push/PR/merge performed. STOP human review; model/OOS counters remain 0/0.

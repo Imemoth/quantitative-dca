@@ -1,5 +1,5 @@
 {
-  "status": "DATA_ACQUISITION_CLOSURE_BLOCKED_PENDING_INDEPENDENT_REVIEW",
+  "status": "DATA_ACQUISITION_CLOSURE_REVIEW_PASS_BLOCKED_BY_DATA_HUMAN_REVIEW_REQUIRED",
   "foundation_software_pit_gate": {
     "status": "PASS",
     "verified_tests": 394,
@@ -133,5 +133,19 @@
     "admitted_domains": []
   },
   "readiness_contract": "configs/research_readiness_v1.json",
-  "admission_preflight": "reports/research-readiness-preflight.json"
+  "admission_preflight": "reports/research-readiness-preflight.json",
+  "data_admission_closure": {
+    "software_spec_review": "PASS",
+    "code_quality_review": "PASS",
+    "data_admission_review": "PASS_FOR_BLOCKED_ASSESSMENT_ONLY",
+    "review_report": "reports/acquisition-independent-reviews.md",
+    "checkpoint_report": "reports/data-acquisition-admission-closure-checkpoint.md",
+    "full_suite_passed": 954,
+    "full_suite_seconds": 61.77,
+    "test_log_sha256": "c602cbfc9078331de37b07e2cb3d36ff172ec260d13513314d02aba8f4b92330",
+    "compileall": "PASS",
+    "working_tree_diff_check": "PASS",
+    "positive_real_panel_validator": "NOT_IMPLEMENTED_NO_ADMITTED_PANEL",
+    "human_review_required": true
+  }
 }
