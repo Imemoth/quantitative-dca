@@ -1,0 +1,421 @@
+# Diagnostic infrastructure defaults; no validated economic thresholds.
+version: recession-core-v1
+pillars:
+  growth:
+  - HEALTHY
+  - COOLING
+  - DETERIORATING
+  - CONTRACTIONARY
+  - UNKNOWN
+  labor:
+  - HEALTHY
+  - COOLING
+  - DETERIORATING
+  - STRESS
+  - UNKNOWN
+  inflation:
+  - BENIGN
+  - ELEVATED
+  - STICKY
+  - ACCELERATING
+  - UNKNOWN
+  policy:
+  - ACCOMMODATIVE
+  - NEUTRAL
+  - RESTRICTIVE
+  - UNKNOWN
+  curve:
+  - NORMAL
+  - FLAT
+  - INVERTED
+  - UNKNOWN
+  credit:
+  - NORMAL
+  - WATCH
+  - STRESS
+  - CRISIS
+  - UNKNOWN
+  conditions:
+  - EASY
+  - NEUTRAL
+  - TIGHT
+  - STRESS
+  - UNKNOWN
+  stress:
+  - NORMAL
+  - WATCH
+  - STRESS
+  - CRISIS
+  - UNKNOWN
+inputs:
+- name: us_gdp_growth
+  pillar: growth
+  series: US_GDP_GROWTH
+  region: US
+  monetary_jurisdiction: FED
+  unit: percent_yoy
+  currency: null
+  max_age_days: 180
+  critical: true
+  quality_floor: B
+  measure_definition: Real GDP year-on-year growth; seasonal/base definition must
+    be admitted
+- name: us_activity
+  pillar: growth
+  series: US_ACTIVITY
+  region: US
+  monetary_jurisdiction: FED
+  unit: index_points
+  currency: null
+  max_age_days: 65
+  critical: false
+  quality_floor: B
+  measure_definition: Official activity proxy level; index base must be admitted
+- name: us_unemployment
+  pillar: labor
+  series: US_UNEMPLOYMENT
+  region: US
+  monetary_jurisdiction: FED
+  unit: percent
+  currency: null
+  max_age_days: 65
+  critical: true
+  quality_floor: B
+  measure_definition: Unemployment rate; denominator and geography must be admitted
+- name: us_employment_growth
+  pillar: labor
+  series: US_EMPLOYMENT_GROWTH
+  region: US
+  monetary_jurisdiction: FED
+  unit: percent_yoy
+  currency: null
+  max_age_days: 65
+  critical: false
+  quality_floor: B
+  measure_definition: Employment/payroll year-on-year growth; geography must be admitted
+- name: us_headline_inflation
+  pillar: inflation
+  series: US_HEADLINE_INFLATION
+  region: US
+  monetary_jurisdiction: FED
+  unit: percent_yoy
+  currency: null
+  max_age_days: 65
+  critical: false
+  quality_floor: B
+  measure_definition: CPI/HICP year-on-year inflation; not an index level
+- name: us_core_inflation
+  pillar: inflation
+  series: US_CORE_INFLATION
+  region: US
+  monetary_jurisdiction: FED
+  unit: percent_yoy
+  currency: null
+  max_age_days: 65
+  critical: true
+  quality_floor: B
+  measure_definition: Core CPI/HICP year-on-year inflation; exclusions must be admitted
+- name: us_policy_rate
+  pillar: policy
+  series: US_POLICY_RATE
+  region: US
+  monetary_jurisdiction: FED
+  unit: percent
+  currency: null
+  max_age_days: 45
+  critical: true
+  quality_floor: B
+  measure_definition: Explicit policy measure; target/effective/monthly average must
+    not be interchanged
+- name: us_curve_10y_2y
+  pillar: curve
+  series: US_CURVE_10Y_2Y
+  region: US
+  monetary_jurisdiction: FED
+  unit: percentage_points
+  currency: null
+  max_age_days: 10
+  critical: true
+  quality_floor: B
+  measure_definition: Aligned 10Y minus 2Y regional sovereign yields
+- name: us_curve_10y_3m
+  pillar: curve
+  series: US_CURVE_10Y_3M
+  region: US
+  monetary_jurisdiction: FED
+  unit: percentage_points
+  currency: null
+  max_age_days: 10
+  critical: false
+  quality_floor: B
+  measure_definition: Aligned 10Y minus 3M regional sovereign yields
+- name: us_high_yield
+  pillar: credit
+  series: US_HIGH_YIELD
+  region: US
+  monetary_jurisdiction: FED
+  unit: percentage_points
+  currency: null
+  max_age_days: 10
+  critical: true
+  quality_floor: B
+  measure_definition: Regional high-yield option-adjusted spread; index universe must
+    be admitted
+- name: us_investment_grade
+  pillar: credit
+  series: US_INVESTMENT_GRADE
+  region: US
+  monetary_jurisdiction: FED
+  unit: percentage_points
+  currency: null
+  max_age_days: 10
+  critical: false
+  quality_floor: B
+  measure_definition: Regional investment-grade spread; index universe must be admitted
+- name: us_financial_conditions
+  pillar: conditions
+  series: US_FINANCIAL_CONDITIONS
+  region: US
+  monetary_jurisdiction: FED
+  unit: index_points
+  currency: null
+  max_age_days: 20
+  critical: true
+  quality_floor: B
+  measure_definition: Regional conditions index level; sign/base must be admitted
+- name: us_liquidity_change
+  pillar: conditions
+  series: US_LIQUIDITY_CHANGE
+  region: US
+  monetary_jurisdiction: FED
+  unit: ratio_change_3m
+  currency: null
+  max_age_days: 20
+  critical: false
+  quality_floor: B
+  measure_definition: Central bank balance sheet current / 3M-prior minus 1
+- name: us_market_stress
+  pillar: stress
+  series: US_MARKET_STRESS
+  region: US
+  monetary_jurisdiction: FED
+  unit: index_points
+  currency: null
+  max_age_days: 10
+  critical: true
+  quality_floor: B
+  measure_definition: Regional implied volatility proxy; not recession probability
+- name: us_real_yield
+  pillar: policy
+  series: US_REAL_YIELD
+  region: US
+  monetary_jurisdiction: FED
+  unit: percent
+  currency: null
+  max_age_days: 10
+  critical: false
+  quality_floor: B
+  measure_definition: Regional real 10Y sovereign yield; instrument/index must be
+    admitted
+- name: ea_gdp_growth
+  pillar: growth
+  series: EA_GDP_GROWTH
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percent_yoy
+  currency: null
+  max_age_days: 180
+  critical: true
+  quality_floor: B
+  measure_definition: Real GDP year-on-year growth; seasonal/base definition must
+    be admitted
+- name: ea_activity
+  pillar: growth
+  series: EA_ACTIVITY
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: index_points
+  currency: null
+  max_age_days: 65
+  critical: false
+  quality_floor: B
+  measure_definition: Official activity proxy level; index base must be admitted
+- name: ea_unemployment
+  pillar: labor
+  series: EA_UNEMPLOYMENT
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percent
+  currency: null
+  max_age_days: 65
+  critical: true
+  quality_floor: B
+  measure_definition: Unemployment rate; denominator and geography must be admitted
+- name: ea_employment_growth
+  pillar: labor
+  series: EA_EMPLOYMENT_GROWTH
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percent_yoy
+  currency: null
+  max_age_days: 65
+  critical: false
+  quality_floor: B
+  measure_definition: Employment/payroll year-on-year growth; geography must be admitted
+- name: ea_headline_inflation
+  pillar: inflation
+  series: EA_HEADLINE_INFLATION
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percent_yoy
+  currency: null
+  max_age_days: 65
+  critical: false
+  quality_floor: B
+  measure_definition: CPI/HICP year-on-year inflation; not an index level
+- name: ea_core_inflation
+  pillar: inflation
+  series: EA_CORE_INFLATION
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percent_yoy
+  currency: null
+  max_age_days: 65
+  critical: true
+  quality_floor: B
+  measure_definition: Core CPI/HICP year-on-year inflation; exclusions must be admitted
+- name: ea_policy_rate
+  pillar: policy
+  series: EA_POLICY_RATE
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percent
+  currency: null
+  max_age_days: 45
+  critical: true
+  quality_floor: B
+  measure_definition: Explicit policy measure; target/effective/monthly average must
+    not be interchanged
+- name: ea_curve_10y_2y
+  pillar: curve
+  series: EA_CURVE_10Y_2Y
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percentage_points
+  currency: null
+  max_age_days: 10
+  critical: true
+  quality_floor: B
+  measure_definition: Aligned 10Y minus 2Y regional sovereign yields
+- name: ea_curve_10y_3m
+  pillar: curve
+  series: EA_CURVE_10Y_3M
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percentage_points
+  currency: null
+  max_age_days: 10
+  critical: false
+  quality_floor: B
+  measure_definition: Aligned 10Y minus 3M regional sovereign yields
+- name: ea_high_yield
+  pillar: credit
+  series: EA_HIGH_YIELD
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percentage_points
+  currency: null
+  max_age_days: 10
+  critical: true
+  quality_floor: B
+  measure_definition: Regional high-yield option-adjusted spread; index universe must
+    be admitted
+- name: ea_investment_grade
+  pillar: credit
+  series: EA_INVESTMENT_GRADE
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percentage_points
+  currency: null
+  max_age_days: 10
+  critical: false
+  quality_floor: B
+  measure_definition: Regional investment-grade spread; index universe must be admitted
+- name: ea_financial_conditions
+  pillar: conditions
+  series: EA_FINANCIAL_CONDITIONS
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: index_points
+  currency: null
+  max_age_days: 20
+  critical: true
+  quality_floor: B
+  measure_definition: Regional conditions index level; sign/base must be admitted
+- name: ea_liquidity_change
+  pillar: conditions
+  series: EA_LIQUIDITY_CHANGE
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: ratio_change_3m
+  currency: null
+  max_age_days: 20
+  critical: false
+  quality_floor: B
+  measure_definition: Central bank balance sheet current / 3M-prior minus 1
+- name: ea_market_stress
+  pillar: stress
+  series: EA_MARKET_STRESS
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: index_points
+  currency: null
+  max_age_days: 10
+  critical: true
+  quality_floor: B
+  measure_definition: Regional implied volatility proxy; not recession probability
+- name: ea_real_yield
+  pillar: policy
+  series: EA_REAL_YIELD
+  region: EU
+  monetary_jurisdiction: ECB
+  unit: percent
+  currency: null
+  max_age_days: 10
+  critical: false
+  quality_floor: B
+  measure_definition: Regional real 10Y sovereign yield; instrument/index must be
+    admitted
+- name: us_core_pce
+  pillar: inflation
+  series: US_CORE_PCE
+  region: US
+  monetary_jurisdiction: FED
+  unit: percent_yoy
+  currency: null
+  max_age_days: 65
+  critical: false
+  quality_floor: B
+  measure_definition: Core PCE price inflation year-on-year; not CPI
+contexts:
+- region: US
+  monetary_jurisdiction: FED
+  exchange: XNYS
+- region: EU
+  monetary_jurisdiction: ECB
+  exchange: XETR
+scenarios:
+- NORMAL_EXPANSION
+- SOFT_LANDING
+- LATE_CYCLE_SLOWDOWN
+- STAGFLATION_RISK
+- RECESSION_RISK
+- CREDIT_STRESS
+- RECOVERY
+- INSUFFICIENT_EVIDENCE
+quality_weights:
+  A: 1.0
+  B: 0.7
+  C: 0.3
+rules: []
+scenario_rules: []

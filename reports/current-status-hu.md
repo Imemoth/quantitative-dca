@@ -1,5 +1,31 @@
 # V1 fejlesztési állapot — 2026-10-05
 
+## Legfrissebb munkaszakasz: Data Admission + Recession Risk Core
+
+A Foundation és a Features/Targets/Regimes Task 10 már lezárt szoftveres checkpoint.
+Az új ág: `research/data-admission-recession-core`, alap: `3ad752a`.
+Az új diagnosztikai alrendszer elkészült: 31 elkülönített inputdefiníció, 8 pillér,
+PIT-alapú immutable snapshot, bizonyítékból számított adatbizalom és ellenőrzött
+snapshot-visszajátszás. A default gazdasági szabályok üresek; ez nem recessziómodell.
+
+Review-javítás: `7212a30`; teljes suite 911 PASS, ebből 107 recession-core teszt.
+A független végső review és lezárás státuszát a
+`reports/data-admission-recession-checkpoint.md` és a
+`reports/recession-risk-independent-reviews.md` tartalmazza.
+
+14 korábban megőrzött adatmintát újraellenőriztünk, de egyiket sem minősítettük
+admitted panelnek. A tényleges panel, a valós paneles leakage-kapu és a historikus
+diagnosztikai smoke továbbra is BLOCKED BY DATA ADMISSION. Pénzügyi modell/OOS
+futtatások: 0. A retrospective holdout NOT RUN / NOT PRISTINE. Ebben a munkaszakaszban
+nem történt pénzügyiadat-hálózati kérés vagy 2024+ pénzügyi adat megtekintése.
+A korábbi incidensek változatlanul megmaradnak.
+
+A checkpoint után STOP és emberi review szükséges. Models/Policy/Validation nem
+indul automatikusan, és az adatkapuk teljesülése mellett külön engedélyt is igényel.
+Nincs production/Codex handoff; nincs main merge vagy force-push.
+
+## Korábbi checkpointok és történeti részletek
+
 A projekt aktív. A korábbi dokumentációs incidenst a felhasználó elfogadta, és engedélyezte a folytatást. Az eredeti BLOCKED riportok történeti feljegyzések; nem a jelenlegi munkavégzési engedélyt jelentik.
 
 - Foundation Task 1–10: implementálva, tesztelve, feladatonkénti független review után lezárva.

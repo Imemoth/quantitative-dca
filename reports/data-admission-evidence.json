@@ -1,0 +1,193 @@
+{
+  "audit_date": "2026-10-05",
+  "source": "previous bounded development captures; external to GitHub snapshot",
+  "network_financial_requests": 0,
+  "artifacts": [
+    {
+      "path": "fred_development_audit/CPIAUCSL/80d08f7e8746f551392aded2606e2dca479abb8b5b400776776301599fe9b3b4.raw",
+      "sha256": "80d08f7e8746f551392aded2606e2dca479abb8b5b400776776301599fe9b3b4",
+      "bytes": 81616,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 830,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "fred_development_audit/CPILFESL/4694d64693f228dcab50a171d9c215a3024b4c3f4691d6b6a6b8752174b0474c.raw",
+      "sha256": "4694d64693f228dcab50a171d9c215a3024b4c3f4691d6b6a6b8752174b0474c",
+      "bytes": 80832,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 822,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "fred_development_audit/FEDFUNDS/d2a8a5b2debf9abacdd7d5f434603742968b16c0591d97ef48c31ffb4c78b882.raw",
+      "sha256": "d2a8a5b2debf9abacdd7d5f434603742968b16c0591d97ef48c31ffb4c78b882",
+      "bytes": 16331,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 169,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "fred_development_audit/UNRATE/5cab72748c8af9029f6a366a2865896ab3c3efe1ab715e4c67d5f24c6c9305fa.raw",
+      "sha256": "5cab72748c8af9029f6a366a2865896ab3c3efe1ab715e4c67d5f24c6c9305fa",
+      "bytes": 28108,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 296,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "fred_eu_development_audit/CP0000EZ19M086NEST/142b57055bc254e856f04d3dd927759eabc6e56cc33ac4f5035a4bd1520d0b98.raw",
+      "sha256": "142b57055bc254e856f04d3dd927759eabc6e56cc33ac4f5035a4bd1520d0b98",
+      "bytes": 35257,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 362,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "fred_yield_development_audit/DGS10/2010-01-01_2016-12-31/9184a33dec0c5a61331ce32b7e04c229f07c45f8b0c8bd8be824d520593edfd3.raw",
+      "sha256": "9184a33dec0c5a61331ce32b7e04c229f07c45f8b0c8bd8be824d520593edfd3",
+      "bytes": 173525,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 1826,
+      "observation_start": "2010-01-01",
+      "observation_end": "2016-12-29",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "fred_yield_development_audit/DGS10/2017-01-01_2023-12-31/23c2b578847d88befd4e32ee5e8a288b207b48f502e9561bf79256b310f557f1.raw",
+      "sha256": "23c2b578847d88befd4e32ee5e8a288b207b48f502e9561bf79256b310f557f1",
+      "bytes": 346862,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 3653,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-12-28",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "fred_yield_development_audit/DGS2/2010-01-01_2016-12-31/94f9a64d997c0c650f8a32338038572abdb0d335194d7b5a683814b2ddf8e4d5.raw",
+      "sha256": "94f9a64d997c0c650f8a32338038572abdb0d335194d7b5a683814b2ddf8e4d5",
+      "bytes": 173522,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 1826,
+      "observation_start": "2010-01-01",
+      "observation_end": "2016-12-29",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "fred_yield_development_audit/DGS2/2017-01-01_2023-12-31/9f75704502ea5c7d29654e9cd8eeb4088db19d4985eb8b2f4bd4b0c11dc12b29.raw",
+      "sha256": "9f75704502ea5c7d29654e9cd8eeb4088db19d4985eb8b2f4bd4b0c11dc12b29",
+      "bytes": 346672,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 3651,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-12-28",
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "eodhd_development_audit/ac37c9c3a7b1a5255ad92ae247c16f07db29b4a5c8abdc8e54687cc0bc270c07.raw",
+      "sha256": "ac37c9c3a7b1a5255ad92ae247c16f07db29b4a5c8abdc8e54687cc0bc270c07",
+      "bytes": 433754,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 3522,
+      "publication_timestamp_present": false,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "sec_index_audit/2010_QTR1/62c7cf857957315fc54830089733d0b80a4820649bda88c0a4a584b92997ce84.raw",
+      "sha256": "62c7cf857957315fc54830089733d0b80a4820649bda88c0a4a584b92997ce84",
+      "bytes": 26783110,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 300561,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "sec_index_audit/2023_QTR4/7e07262898b3faa7939db400260e202caf2f3e7d6aa664f9e6768ab8c8f26e9b.raw",
+      "sha256": "7e07262898b3faa7939db400260e202caf2f3e7d6aa664f9e6768ab8c8f26e9b",
+      "bytes": 22709009,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "rows": 251348,
+      "date_envelope_verified": true
+    },
+    {
+      "path": "sec_index_audit/filing_sample/4068f78e6bd5a3e9b6416fbb41be59b5338e25a5e951dc307fbc056042d92fa4.raw",
+      "sha256": "4068f78e6bd5a3e9b6416fbb41be59b5338e25a5e951dc307fbc056042d92fa4",
+      "bytes": 1563244,
+      "hash_verified": true,
+      "manifest_present": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "filing_dates": [
+        "20100104"
+      ],
+      "date_envelope_verified": true
+    },
+    {
+      "path": "mnb_development_audit/871e3a88215724f7ac347b2a77b5ebb98b9c8a2bccf84fb4694fbb70745048d2.raw",
+      "sha256": "871e3a88215724f7ac347b2a77b5ebb98b9c8a2bccf84fb4694fbb70745048d2",
+      "bytes": 479,
+      "hash_verified": true,
+      "manifest_present": true,
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "quote_dates": [
+        "2023-12-29"
+      ],
+      "date_envelope_verified": true
+    }
+  ]
+}
