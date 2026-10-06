@@ -22,3 +22,19 @@ actual data readiness separately from software tests. No interface conflicts.
 
 No market data network request has been made in this phase. GitHub source retrieval
 and package installation are software operations. Previous incidents remain history.
+
+Task 1 complete: 14 retained raw captures rehashed and development dates checked;
+0 sources admitted. One original SEC filing manifest absent; explicitly recorded.
+Audit reports committed 4e3b712. No financial network request.
+
+Baseline reproduction finding: fresh GitHub snapshot initially 799 PASS / 5 FAIL.
+All five failures were FileNotFoundError for the same ignored historical FRED test
+capture in tests/providers/test_ingestion.py. Restored the exact pre-existing bounded
+sample locally (SHA256 61dbdd00a87dcb438928819d117258237ccbd6bcaa092ea31d8069a35bdd48f2),
+validated its observation/realtime dates before copying; focused provider suite 27 PASS.
+No production code or tests changed; no new download. Clean-clone full reproduction
+requires this external test dependency. It is not committed or redistributed here.
+
+Task 2 RED: new test_contracts collection failed because the diagnostic module did
+not exist. GREEN: immutable registry/admission contracts and separate YAML implemented;
+focused result recorded below. No feature/regime/target config changed.
