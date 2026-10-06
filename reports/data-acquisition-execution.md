@@ -32,3 +32,24 @@ Verification: raw hashes match, listing dates <= as-of, all sample event dates
 Ruling: do not enlarge MNB/FRED captures before resolving known semantics — more
 rows cannot establish vintage/publication truth — cost if wrong: deferred useful
 coverage acquisition, without contaminating the research gate.
+
+Task 2: TDD RED 42 failures (new admission module/config absent), then GREEN 42/42.
+New FRED raw profiler validates explicit independently recorded bounds, count/offset,
+canonical dates, finite values, duplicate keys and overlapping inclusive revision
+intervals. Nine actual retained captures (13,435 vintage rows, not unique sessions)
+pass these structural checks; all remain RAW_ONLY. Fourteen prior hashes reverified.
+Two new split and 34 dividend records pass basic date/key/numeric checks; exact
+adjustment/revision truth remains unverified. An exploratory integer-fraction
+parser rejected decimal split ratios; used Decimal numerator/denominator instead,
+without modifying raw bytes. No economic values published in aggregate reports.
+
+Ruling: implement readiness as a fail-closed preflight, not a pretend real-panel
+validator. The contract covers all twelve frozen raw dependencies in eight required
+families; even all-green caller declarations cannot issue READY_FOR_HUMAN_APPROVAL.
+An independently verified actual panel is absent, so the positive real-gate path
+is explicitly unimplemented. Cost: future admission needs artifact-bound real-panel
+validation/integration; this avoids treating self-attested strings as evidence now.
+This narrows the plan's proposed dual-status evaluator without weakening V1.
+Task 2 full-suite verification: initial collection failed on a duplicate test module
+basename; renamed the new module to test_admission_readiness.py (no tests removed).
+Fresh suite then 953 PASS in 66.08s; compileall and diff-check PASS.

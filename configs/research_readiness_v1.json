@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "purpose": "Required-family admission preflight; cannot authorize research",
+  "development": {"start": "2010-01-01", "end": "2023-12-31"},
+  "coverage_semantics": "Coverage of eligible sessions/publication periods within the interval, not a requirement for observations on closed-market end dates",
+  "required_checks": ["source_evidence_and_rights", "coverage_and_grain", "reproducible_ids", "availability_chronology", "publication_and_revision", "units_and_currency", "source_lineage", "quality_justification", "mapping_integrity", "temporal_stability"],
+  "families": {
+    "historical_universe": {"globally_required": true, "regions": ["US", "EU"], "dependencies": ["membership", "historical_currency"], "requirements": ["historically active and delisted", "primary common-equity eligibility", "identifier and currency intervals", "known-at and effective-at", "terminal economics linkage"]},
+    "ohlcv": {"globally_required": true, "regions": ["US", "EU"], "dependencies": ["price_history", "unadjusted_close", "original_unit_volume"], "requirements": ["eligible future session opens", "adjusted feature-price lineage", "unadjusted execution prices", "original-share volume", "delisted coverage", "session calendars"]},
+    "corporate_actions": {"globally_required": true, "regions": ["US", "EU"], "dependencies": ["corporate_actions"], "requirements": ["splits", "cash dividends", "spin-offs", "mergers", "symbol changes", "terminal proceeds", "corrections and announcements"]},
+    "fx": {"globally_required": true, "regions": ["US", "EU"], "dependencies": ["fx_quotes"], "requirements": ["USD/HUF", "EUR/HUF", "other required listing currencies", "quote direction and units", "fixing and availability", "calendar/missing-date policy", "separate local and HUF cost"]},
+    "fundamentals": {"globally_required": true, "regions": ["US", "EU"], "dependencies": ["fundamentals"], "requirements": ["original reported vintages", "publication", "restatements", "shares earnings revenue cash flow balance sheet", "security linkage", "structural sector missingness"]},
+    "macro": {"globally_required": true, "regions": ["US", "EU"], "dependencies": ["macro"], "requirements": ["headline/core inflation", "unemployment", "jurisdiction policy rates", "3M/2Y/10Y curve and justified regional proxy", "HY/IG spreads", "financial conditions", "central bank liquidity", "activity", "vintages and publication"]},
+    "market_context": {"globally_required": true, "regions": ["US", "EU"], "dependencies": ["classification", "market"], "requirements": ["broad regional and sector benchmarks", "historical benchmark/calendar mapping", "dated sector classification", "VIX or admitted regional volatility proxy", "broad-market volatility"]},
+    "event_calendars": {"globally_required": true, "regions": ["US", "EU"], "dependencies": ["event_calendar"], "requirements": ["earnings schedules", "inflation releases", "central-bank decisions", "original schedule known-at", "reschedules and cancellations"]}
+  },
+  "real_panel_requirements": ["actual admitted nonempty panel", "immutable raw/canonical/snapshot hashes", "schema and frozen config hashes", "separate feature and target stores", "no future availability or revisions", "no future normalization", "historical cross-section membership", "real data-quality PASS", "real leakage hard-gate PASS", "independent data-admission review PASS"],
+  "research_authorization": "Separate human approval after verified real panel; no model runs from preflight"
+}
