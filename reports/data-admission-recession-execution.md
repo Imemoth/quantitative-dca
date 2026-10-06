@@ -38,3 +38,9 @@ requires this external test dependency. It is not committed or redistributed her
 Task 2 RED: new test_contracts collection failed because the diagnostic module did
 not exist. GREEN: immutable registry/admission contracts and separate YAML implemented;
 focused result recorded below. No feature/regime/target config changed.
+Task 2 focused GREEN: 18 PASS.
+Task 3 RED: test_engine collection failed on absent engine module. GREEN: 55 combined
+contract/engine tests PASS in 2.49s. Selection delegates to canonical latest_known,
+assert_pit_safe and evidence verification; calendars gate releases at regional EOD.
+Future extension, revision timing, binding, missing/stale/low-quality and region cases
+are tested. Confidence is evidence quality, not recession probability.
