@@ -10,6 +10,7 @@ from quant_dca.types import Region,QualityTier
 from .registry import DiagnosticConfig,text
 from .evidence import InputEvidence,AdmissionStatus
 from .contracts import EvidenceReference,InputMeasure,PillarState,MacroRiskSnapshot
+from .rules import evaluate_rules
 
 QUALITY_ORDER={QualityTier.A:0,QualityTier.B:1,QualityTier.C:2}
 
@@ -18,6 +19,8 @@ def validate_selected(evidence,definition,cutoff):
     """Hard gate for a selected canonical observation and scoped admission attestation."""
     row=evidence.observation; a=evidence.admission
     assert_pit_safe((row,),cutoff)
+    if row.vintage_start is not None and date.fromisoformat(row.vintage_start)>row.available_at.date():
+        raise ValueError('VINTAGE_AFTER_AVAILABILITY')
     if row.entity_id is not None:raise ValueError('DIRECT_IDENTITY_PROHIBITED')
     if date.fromisoformat(row.observation_date)>cutoff.date():raise ValueError('FUTURE_OBSERVATION')
     if row.region is not definition.region:raise ValueError('REGION_MISMATCH')
@@ -107,8 +110,9 @@ def build_snapshot(*,as_of,region,monetary_jurisdiction,evidence,config,role='di
         state='COMPLETE_EVIDENCE' if pm and n==len(pm) else 'PARTIAL_EVIDENCE' if n else 'INSUFFICIENT_EVIDENCE'
         pillars.append(PillarState(p.name,'UNKNOWN',state,'RULES_NOT_CONFIGURED' if state=='COMPLETE_EVIDENCE' else state))
     admission='COMPLETE_EVIDENCE' if count and len(usable)==count else 'PARTIAL_EVIDENCE' if usable else 'INSUFFICIENT_EVIDENCE'
-    return MacroRiskSnapshot(prediction,cutoff,region,monetary_jurisdiction,tuple(pillars),measures,refs,
+    pillars,drivers,dominant,secondary=evaluate_rules(tuple(pillars),measures,critical_completeness,config)
+    return MacroRiskSnapshot(prediction,cutoff,region,monetary_jurisdiction,pillars,measures,refs,
         admission,max((m.quality for m in usable),key=QUALITY_ORDER.__getitem__,default=None),
-        'INSUFFICIENT_EVIDENCE',None,completeness,critical_completeness,confidence,(),
+        dominant,secondary,completeness,critical_completeness,confidence,drivers,
         max((r.available_at for r in refs),default=None),tuple(sorted({r.published_at for r in refs if r.published_at is not None})),
-        config.sha256,sources,('UNSUPPORTED_JURISDICTION',) if context is None else ('DIAGNOSTIC_ONLY','RULES_NOT_CONFIGURED'))
+        config.sha256,sources,('UNSUPPORTED_JURISDICTION',) if context is None else (('DIAGNOSTIC_ONLY','RULES_NOT_CONFIGURED') if not config.rules else ('DIAGNOSTIC_ONLY','UNVALIDATED_RULES')))

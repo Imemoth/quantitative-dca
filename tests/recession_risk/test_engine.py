@@ -143,3 +143,21 @@ def test_invalid_request_rejected_before_iterating(cfg,changes):
 def test_out_of_development_dependency_is_rejected(cfg,make_evidence):
     e=make_evidence();e=replace(e,observation=replace(e.observation,available_at=ts('2024-01-01')))
     with pytest.raises(ValueError,match='DEVELOPMENT'):build(cfg,[e])
+
+
+def test_future_vintage_date_cannot_masquerade_as_known(cfg,make_evidence):
+    e=make_evidence(observation_changes={'vintage_start':'2020-06-16','vintage_end':'2023-12-31'})
+    with pytest.raises(ValueError,match='VINTAGE'):
+        build(cfg,[e])
+
+
+def test_missing_revision_clock_for_repeated_period_cannot_be_sorted_by_id(cfg,make_evidence):
+    a=make_evidence(value=1,published=None)
+    b=make_evidence(value=2,published=None,available=ts('2020-06-11',12))
+    with pytest.raises(ValueError,match='AMBIGUOUS_VINTAGE'):build(cfg,[a,b])
+
+
+def test_conflicting_admissions_are_rejected(cfg,make_evidence):
+    e=make_evidence()
+    other=replace(e,admission=replace(e.admission,evidence_refs=('another review',)))
+    with pytest.raises(ValueError,match='AMBIGUOUS_ADMISSION'):build(cfg,[e,other])

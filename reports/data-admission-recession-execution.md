@@ -44,3 +44,8 @@ contract/engine tests PASS in 2.49s. Selection delegates to canonical latest_kno
 assert_pit_safe and evidence verification; calendars gate releases at regional EOD.
 Future extension, revision timing, binding, missing/stale/low-quality and region cases
 are tested. Confidence is evidence quality, not recession probability.
+Task 4 RED: missing reporting module, then 6 behavioral failures / 11 PASS before
+rule evaluation. GREEN: 78 PASS. Additional integrity probes exposed 3 failures:
+future vintage_start behind an earlier availability; ignored unknown nested context
+and scenario fields. Narrow fixes applied; combined subsystem 83 PASS. Conflicting
+admissions and missing revision clocks also tested. Dictionary generated (31 rows).

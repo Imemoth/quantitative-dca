@@ -177,10 +177,10 @@ def config_from_mapping(data):
     inputs=tuple(InputDefinition(**{**i,'region':Region(i['region']),'quality_floor':QualityTier(i['quality_floor'])}) for i in data['inputs'])
     return DiagnosticConfig(
         version=data['version'],pillars=tuple(PillarDefinition(k,tuple(v)) for k,v in data['pillars'].items()),
-        inputs=inputs,contexts=tuple(Context(Region(c['region']),c['monetary_jurisdiction'],c['exchange']) for c in data['contexts']),
+        inputs=inputs,contexts=tuple(Context(**{**c,'region':Region(c['region'])}) for c in data['contexts']),
         scenarios=tuple(data['scenarios']),quality_weights=tuple(sorted(data['quality_weights'].items())),
         rules=tuple(BandRule(**{**r,**{k:tuple(r[k]) for k in ('bounds','states','polarities','descriptions')}}) for r in data['rules']),
-        scenario_rules=tuple(ScenarioRule(r['scenario'],tuple(tuple(v) for v in r['when'])) for r in data['scenario_rules']))
+        scenario_rules=tuple(ScenarioRule(**{**r,'when':tuple(tuple(v) for v in r['when'])}) for r in data['scenario_rules']))
 
 
 def load_config(path=Path('configs/recession_risk_v1.yaml')):

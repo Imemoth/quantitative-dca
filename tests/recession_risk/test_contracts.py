@@ -77,3 +77,11 @@ def test_unadmitted_cannot_claim_quality_and_record_is_frozen():
     raw = admission(status=AdmissionStatus.RAW_ONLY,quality=None)
     assert raw.quality is None
     with pytest.raises(FrozenInstanceError): raw.quality=QualityTier.A
+
+
+@pytest.mark.parametrize('location',['context','scenario'])
+def test_unknown_nested_fields_are_not_silently_dropped(location):
+    d=yaml.safe_load(CONFIG.read_text())
+    if location=='context':d['contexts'][0]['policy_override']=True
+    else:d['scenario_rules']=[{'scenario':'RECOVERY','when':[['growth','HEALTHY']],'confidence_multiplier':2}]
+    with pytest.raises((ValueError,TypeError)):config_from_mapping(d)
