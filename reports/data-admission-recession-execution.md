@@ -49,3 +49,9 @@ rule evaluation. GREEN: 78 PASS. Additional integrity probes exposed 3 failures:
 future vintage_start behind an earlier availability; ignored unknown nested context
 and scenario fields. Narrow fixes applied; combined subsystem 83 PASS. Conflicting
 admissions and missing revision clocks also tested. Dictionary generated (31 rows).
+
+Task 5 focused checks: 86 PASS. Full-suite collection exposed a pytest basename
+collision with the existing tests/types/test_contracts.py; renamed only the new
+file to test_diagnostic_contracts.py. No test assertion was removed or weakened.
+Readiness test first failed on missing software_readiness, then passed after the
+manifest gained separate software/data/research/holdout fields.

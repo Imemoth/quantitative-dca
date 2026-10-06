@@ -29,7 +29,7 @@ Commit the reports independently.
 ## Task 2: Diagnostic registry and admission contracts
 
 Files: configs/recession_risk_v1.yaml; src/quant_dca/recession_risk/{registry,evidence}.py;
-tests/recession_risk/test_contracts.py.
+tests/recession_risk/test_diagnostic_contracts.py.
 Interfaces: frozen DiagnosticConfig/InputDefinition, Admission, InputEvidence.
 Write RED tests for eight pillars, explicit US/FED and EU/ECB mapping, no non-euro
 fallback, wrong units/unknown identity/schema/duplicate definitions and insufficient
