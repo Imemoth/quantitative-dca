@@ -19,6 +19,8 @@ def validate_selected(evidence,definition,cutoff):
     """Hard gate for a selected canonical observation and scoped admission attestation."""
     row=evidence.observation; a=evidence.admission
     assert_pit_safe((row,),cutoff)
+    if row.series != definition.series:
+        raise ValueError('SERIES_MISMATCH')
     if row.vintage_start is not None and date.fromisoformat(row.vintage_start)>row.available_at.date():
         raise ValueError('VINTAGE_AFTER_AVAILABILITY')
     if row.entity_id is not None:raise ValueError('DIRECT_IDENTITY_PROHIBITED')

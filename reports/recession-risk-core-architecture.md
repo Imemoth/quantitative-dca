@@ -2,6 +2,14 @@
 
 Read-only diagnostic scaffold. No financial model or probability claim.
 
+Persistence API: `write_diagnostic(snapshot, config=cfg, evidence=canonical_inputs,
+root=...)`. Before any write, the engine replays the supplied canonical evidence
+under the supplied configuration and compares the complete snapshot. A mismatch
+fails closed. Content and PIT checks are reused, not reimplemented in the writer.
+Output contracts reject mutable collections and non-contract nested substitutes;
+direct construction does not bypass persistence replay. Admission attestations
+remain a trusted reviewed input, not an authenticity certification.
+
 ## Flow and boundaries
 
 `DiagnosticConfig + canonical Observation + reviewed Admission + SnapshotRef`

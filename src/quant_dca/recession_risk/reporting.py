@@ -5,10 +5,17 @@ from pathlib import Path
 from quant_dca.snapshot_contracts import evidence_frame
 from quant_dca.storage.snapshots import write_snapshot
 from .contracts import MacroRiskSnapshot
+from .engine import build_snapshot
 
 
-def write_diagnostic(snapshot: MacroRiskSnapshot,*,root='data/recession_risk'):
-    if not isinstance(snapshot,MacroRiskSnapshot):raise TypeError('DIAGNOSTIC_SNAPSHOT_REQUIRED')
+def write_diagnostic(snapshot: MacroRiskSnapshot,*,config,evidence,root='data/recession_risk'):
+    """Replay canonical evidence before any write; hashes alone do not grant admission."""
+    if type(snapshot) is not MacroRiskSnapshot:
+        raise TypeError('DIAGNOSTIC_SNAPSHOT_REQUIRED')
+    replayed = build_snapshot(as_of=snapshot.as_of, region=snapshot.region,
+        monetary_jurisdiction=snapshot.monetary_jurisdiction, config=config, evidence=evidence)
+    if snapshot != replayed:
+        raise ValueError('DIAGNOSTIC_REPLAY_MISMATCH')
     return write_snapshot(evidence_frame(snapshot),'point_in_time',snapshot.as_of,root=root,
         source_hashes=snapshot.source_snapshot_hashes,schema_version='recession-core-v1')
 

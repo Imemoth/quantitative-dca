@@ -55,3 +55,9 @@ collision with the existing tests/types/test_contracts.py; renamed only the new
 file to test_diagnostic_contracts.py. No test assertion was removed or weakened.
 Readiness test first failed on missing software_readiness, then passed after the
 manifest gained separate software/data/research/holdout fields.
+
+Independent initial spec PASS / quality FAIL at f4e863c. Three Important boundary
+findings reproduced and fixed under TDD; details in recession-risk-independent-reviews.md.
+21 additional boundary cases cover mutable contracts, forged persisted state,
+replay evidence and defensive series matching. After fixes: full suite 911 PASS
+in 50.57s; compileall and git diff --check exit 0. Re-review remains pending.

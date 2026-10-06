@@ -133,6 +133,11 @@ class DiagnosticConfig:
         text(self.version)
         for value in (self.pillars,self.inputs,self.contexts,self.scenarios,self.quality_weights,self.rules,self.scenario_rules):
             immutable_tuple(value)
+        for values, contract in ((self.pillars, PillarDefinition), (self.inputs, InputDefinition),
+                                 (self.contexts, Context), (self.rules, BandRule),
+                                 (self.scenario_rules, ScenarioRule)):
+            if any(type(value) is not contract for value in values):
+                raise TypeError('IMMUTABLE_CONFIG_MEMBER_REQUIRED')
         if len(self.pillars)!=8 or {p.name for p in self.pillars}!=PILLARS: raise ValueError('EIGHT_PILLARS_REQUIRED')
         if not self.inputs or len({i.name for i in self.inputs})!=len(self.inputs): raise ValueError('DUPLICATE_OR_EMPTY_INPUTS')
         keys=[(i.series,i.region,i.monetary_jurisdiction) for i in self.inputs]

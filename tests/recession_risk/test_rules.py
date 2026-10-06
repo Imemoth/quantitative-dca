@@ -73,7 +73,10 @@ def test_future_mutation_cannot_rewrite_driver_or_scenario(cfg,make_evidence):
 
 
 def test_immutable_diagnostic_persistence_and_dictionary(cfg,make_evidence,tmp_path):
-    s=build(cfg,[make_evidence()]);a=write_diagnostic(s,root=tmp_path/'diagnostics');b=write_diagnostic(s,root=tmp_path/'diagnostics')
+    rows=(make_evidence(),)
+    s=build(cfg,rows)
+    a=write_diagnostic(s,config=cfg,evidence=rows,root=tmp_path/'diagnostics')
+    b=write_diagnostic(s,config=cfg,evidence=rows,root=tmp_path/'diagnostics')
     assert a.sha256==b.sha256
     m=read_snapshot_metadata(a)
     assert m['layer']=='point_in_time' and m['source_hashes']==list(s.source_snapshot_hashes)
