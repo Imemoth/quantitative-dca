@@ -33,7 +33,8 @@ capture in tests/providers/test_ingestion.py. Restored the exact pre-existing bo
 sample locally (SHA256 61dbdd00a87dcb438928819d117258237ccbd6bcaa092ea31d8069a35bdd48f2),
 validated its observation/realtime dates before copying; focused provider suite 27 PASS.
 No production code or tests changed; no new download. Clean-clone full reproduction
-requires this external test dependency. It is not committed or redistributed here.
+requires this external test dependency. It is not committed; the final private
+checkpoint ZIP includes only this bounded replay fixture, not the other raw captures.
 
 Task 2 RED: new test_contracts collection failed because the diagnostic module did
 not exist. GREEN: immutable registry/admission contracts and separate YAML implemented;
@@ -60,4 +61,7 @@ Independent initial spec PASS / quality FAIL at f4e863c. Three Important boundar
 findings reproduced and fixed under TDD; details in recession-risk-independent-reviews.md.
 21 additional boundary cases cover mutable contracts, forged persisted state,
 replay evidence and defensive series matching. After fixes: full suite 911 PASS
-in 50.57s; compileall and git diff --check exit 0. Re-review remains pending.
+in 50.57s; compileall and git diff --check exit 0. Independent re-reviews at 7212a30:
+spec PASS (44 independently run checks), code-quality PASS (21 checks plus probes).
+No Critical/Important findings remain. Software checkpoint closes; data gates remain
+blocked and Models/Policy/Validation requires separate human approval. STOP.

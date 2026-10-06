@@ -1,6 +1,7 @@
 # Data Admission + Recession Risk Core checkpoint
 
-Status: REVIEW PENDING — not closed. Base GitHub main: 3ad752a5be7a1141433927ed7b275d8df7261ffc.
+Status: SOFTWARE CHECKPOINT PASS — STOP FOR HUMAN REVIEW; DATA ADMISSION BLOCKED.
+Base GitHub main: 3ad752a5be7a1141433927ed7b275d8df7261ffc.
 Branch: research/data-admission-recession-core. No main merge.
 
 ## Deliverable map
@@ -16,7 +17,7 @@ Branch: research/data-admission-recession-core. No main merge.
 | USA and EU/jurisdiction source map | recession-risk-input-admission.md |
 | Historical smoke | HISTORICAL_DIAGNOSTIC_BLOCKED_BY_DATA_ADMISSION |
 | Tests and TDD ledger | data-admission-recession-execution.md |
-| Independent reviews | Pending |
+| Independent reviews | Spec PASS + quality PASS; recession-risk-independent-reviews.md |
 | Full dashboard note | ../docs/recession-risk-dashboard-full-v1.md |
 | Probability V2 note | ../docs/recession-risk-probability-v2.md |
 | Macro Risk Gate note | ../docs/macro-risk-gate-experiment.md |
@@ -48,12 +49,23 @@ pre-existing bounded FRED CPI replay file (see ledger), also ignored by Git.
 
 ## Reproduction
 
+Verified code commit: `7212a30ace837173378b0ccc6f0adcd3ed5931fe`.
+Full suite: **911 PASS** (final rerun 47.80s). Recession subsystem: **107 PASS** (3.52s).
+`compileall` and `git diff --check`: exit 0. Initial baseline: 804 tests.
+Independent review history and dispositions: `recession-risk-independent-reviews.md`.
+Machine-readable verification: `recession-risk-verification.json`.
+
 Python 3.12+, install `pip install -e '.[test]'` in an isolated environment.
 Run `python -m pytest -q`, `python -m compileall -q src tests`, `git diff --check`.
 No command above downloads market data. The full suite must have the recorded FRED
 sample at data/raw/provider_probes/FRED_CPIAUCSL_2023_sample.raw; without it five
 existing tests fail rather than silently skip. Its SHA256 is
 61dbdd00a87dcb438928819d117258237ccbd6bcaa092ea31d8069a35bdd48f2.
+
+The private checkpoint ZIP includes this one already-retained test dependency in
+its original relative path, so extracting it preserves full-suite reproducibility.
+It is not committed to Git or claimed as admitted data. Other audit raw captures
+are not redistributed. The ZIP also carries a Git bundle with checkpoint history.
 
 Dictionary generation:
 `from quant_dca.recession_risk.reporting import write_dictionary`
@@ -62,5 +74,21 @@ with load_config from quant_dca.recession_risk.registry.
 
 ## Stop point
 
-After both independent reviews PASS and final verification, stop for human review.
+Both independent reviews PASS. Software checkpoint complete; stopped for human review.
 Do not automatically start Models/Policy/Validation or the retrospective holdout.
+
+## Logical commits
+
+| Commit | Scope |
+|---|---|
+| da2cfbc | User mandate and execution plan |
+| 4e3b712 | Phase A retained-data audit; no automatic admission |
+| 2cc5043 | Diagnostic registry and admission contracts |
+| 767cb0e | PIT snapshot and evidence confidence |
+| c0d95cb | Deterministic rules, drivers and reporting |
+| d418f02 | Architecture, readiness and deferred design notes |
+| f4e863c | Full-suite collection fix and review draft |
+| 7212a30 | TDD fixes for independent review findings; both re-reviews PASS |
+
+Final documentation commit is identified by the bundled branch HEAD. No remote push
+or main merge was performed. Review the ZIP/Git bundle before any integration.

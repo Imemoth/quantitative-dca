@@ -1,5 +1,5 @@
 {
-  "status": "DATA_ADMISSION_BLOCKED_RECESSION_CORE_REVIEW_PENDING",
+  "status": "RECESSION_CORE_SOFTWARE_PASS_DATA_ADMISSION_BLOCKED_HUMAN_REVIEW_REQUIRED",
   "foundation_software_pit_gate": {
     "status": "PASS",
     "verified_tests": 394,
@@ -22,8 +22,12 @@
     "9": "REVIEW_PASS",
     "10": "REVIEW_PASS"
   },
-  "latest_completed_software_tests": 804,
-  "latest_completed_subsystem_tests": 410,
+  "latest_completed_software_tests": 911,
+  "latest_completed_subsystem_tests": 107,
+  "latest_completed_subsystem": "recession_risk",
+  "feature_target_regime_checkpoint_tests": 410,
+  "recession_core_code_commit": "7212a30ace837173378b0ccc6f0adcd3ed5931fe",
+  "recession_core_review_report": "reports/recession-risk-independent-reviews.md",
   "financial_research_runs": 0,
   "financial_oos_research_runs": 0,
   "oos_results_generated": false,
@@ -79,7 +83,7 @@
   "software_readiness": {
     "foundation": "PASS",
     "feature_target_regime": "PASS",
-    "recession_core": "IMPLEMENTED_REVIEW_PENDING"
+    "recession_core": "INDEPENDENT_SPEC_AND_QUALITY_PASS"
   },
   "data_readiness": {
     "audit_inventory_report_complete": true,

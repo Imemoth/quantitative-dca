@@ -39,4 +39,19 @@ rechecks evidence content hashes instead of trusting embedded provenance strings
 The separate series-binding regression failed before its narrow guard was added.
 Readability improved in new boundary code; broad formatting-only churn deferred.
 
-Re-review: **PENDING**. This document does not close the checkpoint.
+## Independent re-review — 7212a30ace837173378b0ccc6f0adcd3ed5931fe
+
+Spec delta review: **PASS**, no Critical, Important or new Minor findings. Independent
+focused verification: 44 PASS in 2.21s (boundary, rules/persistence, architecture).
+Confirmed immutable contracts, replay persistence, series binding, updated call
+sites/documentation and unchanged frozen feature/regime/target artifacts.
+
+Code-quality re-review: **PASS**, no residual Critical/Important findings. Independent
+boundary regression suite: 21 PASS. Additional synthetic probes rejected mutable
+config/output, invalid development dates, future availability, evidence-free
+confidence, forged config/source/scenario/confidence and missing replay evidence.
+Valid canonical-evidence persistence succeeded. Minor formatting concern is deferred.
+
+Both reviewers used synthetic bounded data only and made no network requests,
+repository edits, financial research or holdout access. Full-suite verification is
+controller evidence, not represented as independently reproduced by reviewers.
