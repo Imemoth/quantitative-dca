@@ -53,3 +53,17 @@ This narrows the plan's proposed dual-status evaluator without weakening V1.
 Task 2 full-suite verification: initial collection failed on a duplicate test module
 basename; renamed the new module to test_admission_readiness.py (no tests removed).
 Fresh suite then 953 PASS in 66.08s; compileall and diff-check PASS.
+
+Task 3: evidence-backed closure assessment written; no source promoted. Status
+metadata now distinguishes four completed bounded financial requests from unknown
+dispatch count of the interrupted attempt, and records incidental modern examples.
+Previous Recession Core zero-access snapshot preserved under previous_phase_access
+and reports/history. TDD status-consistency test RED (missing new receipt fields),
+then GREEN; historical assertions moved to the preserved phase, not deleted.
+Readiness declarations/preflight and real-leakage BLOCKED report generated. No
+canonical panel or model artifacts constructed. Provider decision matrix now has
+scope-specific free/paid alternatives without invented cost or vendor guarantees.
+Task 3 verification: 954 PASS in 67.96s; compileall and diff-check PASS. Frozen
+feature/target/regime/spec paths have no diff from e58bf60. The existing 3,522-bar
+sample also has unique dates, finite numbers, valid ranges and nonnegative volume;
+this does not establish session completeness or original volume economics.

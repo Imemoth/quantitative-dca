@@ -220,5 +220,22 @@
   "actual_admitted_panel_rows": 0,
   "real_panel_leakage": "BLOCKED_NOT_EXECUTED",
   "financial_model_runs": 0,
-  "financial_oos_runs": 0
+  "financial_oos_runs": 0,
+  "ohlcv": {
+    "source_hash": "ac37c9c3a7b1a5255ad92ae247c16f07db29b4a5c8abdc8e54687cc0bc270c07",
+    "rows": 3522,
+    "distinct_dates": 3522,
+    "observation_start": "2010-01-04",
+    "observation_end": "2023-12-29",
+    "high_below_low": 0,
+    "negative_volume": 0,
+    "nonfinite_numeric_rows": 0,
+    "open_close_outside_range": 0,
+    "duplicate_dates": 0,
+    "calendar_completeness": "NOT_PROVEN",
+    "original_volume_basis": "NOT_PROVEN",
+    "economic_adjustments": "NOT_RECONCILED",
+    "admission": "RAW_ONLY",
+    "quality_tier": null
+  }
 }

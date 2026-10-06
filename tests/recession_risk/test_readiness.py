@@ -11,8 +11,10 @@ def test_readiness_separates_software_data_research_and_holdout():
     assert m['research_readiness']['financial_model_runs']==m['research_readiness']['financial_oos_runs']==0
     assert m['holdout_status']['retrospective']=='NOT_RUN'
     assert m['holdout_status']['pristine'] is False
-    assert m['current_phase_access']['financial_data_network_requests']==0
-    assert m['current_phase_access']['accessed_2024_plus_financial_observations'] is False
+    # The prior sidecar phase remains zero-access evidence. The later acquisition
+    # phase has its own receipt-linked assertions in tests/admission.
+    assert m['previous_phase_access']['recession_core']['financial_data_network_requests']==0
+    assert m['previous_phase_access']['recession_core']['accessed_2024_plus_financial_observations'] is False
 
 
 def test_source_audit_retains_unknown_tiers_and_explicit_statuses():

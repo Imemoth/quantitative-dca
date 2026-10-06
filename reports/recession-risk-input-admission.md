@@ -4,6 +4,13 @@ Status: **HISTORICAL_DIAGNOSTIC_BLOCKED_BY_DATA_ADMISSION**.
 No actual macro series is admitted. There is no recession probability, historical
 score, fitted model or threshold selection. Software fixtures will not change this.
 
+2026-10-06 acquisition update: nine retained bounded FRED captures (13,435 vintage
+rows across overlapping observation-date chunks) passed the new raw structural
+profiler; fourteen prior capture hashes reverified. This does not establish clocks,
+units, complete inputs or licensing and does not admit any series. No real-input
+snapshot/score was passed to Recession Core. No threshold, probability calibration,
+Macro Risk Gate or DCA linkage was added. Details: `raw-data-quality-results.json`.
+
 | Diagnostic inputs | USA/FED evidence | Euro-area/ECB evidence | Other EU jurisdictions |
 |---|---|---|---|
 | GDP/growth and activity | MISSING | MISSING | MISSING |

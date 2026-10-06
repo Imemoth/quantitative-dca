@@ -1,5 +1,5 @@
 {
-  "status": "DATA_ACQUISITION_CLOSURE_BLOCKED_PENDING_INDEPENDENT_REVIEW",
+  "status": "RECESSION_CORE_SOFTWARE_PASS_DATA_ADMISSION_BLOCKED_HUMAN_REVIEW_REQUIRED",
   "foundation_software_pit_gate": {
     "status": "PASS",
     "verified_tests": 394,
@@ -22,9 +22,9 @@
     "9": "REVIEW_PASS",
     "10": "REVIEW_PASS"
   },
-  "latest_completed_software_tests": 954,
-  "latest_completed_subsystem_tests": 43,
-  "latest_completed_subsystem": "admission",
+  "latest_completed_software_tests": 911,
+  "latest_completed_subsystem_tests": 107,
+  "latest_completed_subsystem": "recession_risk",
   "feature_target_regime_checkpoint_tests": 410,
   "recession_core_code_commit": "7212a30ace837173378b0ccc6f0adcd3ed5931fe",
   "recession_core_review_report": "reports/recession-risk-independent-reviews.md",
@@ -41,7 +41,7 @@
     "real_panel_leakage_gate_pass": false
   },
   "lockbox_untouched_certified": false,
-  "latest_access_incident": "reports/source-search-access-incident-2026-10-06.md",
+  "latest_access_incident": "reports/mnb-search-access-incident-2026-09-17.md",
   "source_files": [
     {
       "path": "docs/quant-dca-engine-v1-design-spec.md",
@@ -104,34 +104,9 @@
     "true_forward": "NOT_STARTED_REQUIRES_FINAL_FREEZE"
   },
   "current_phase_access": {
-    "phase": "DATA_ACQUISITION_ADMISSION_CLOSURE",
-    "completed_financial_data_network_requests": 4,
-    "financial_data_network_requests": null,
-    "interrupted_request_count": "UNKNOWN",
-    "accessed_2024_plus_financial_observations": true,
-    "deliberate_requests_bounded_before_send": true,
-    "earlier_incidents_preserved": true,
-    "receipt": "reports/observed-source-inventory.json",
-    "accessed_2024_plus_in_bounded_responses": false
+    "financial_data_network_requests": 0,
+    "accessed_2024_plus_financial_observations": false,
+    "earlier_incidents_preserved": true
   },
-  "github_base_commit": "e58bf6001446c3787bf8d5b11d4b1ab94ba8a4e6",
-  "previous_phase_access": {
-    "recession_core": {
-      "financial_data_network_requests": 0,
-      "accessed_2024_plus_financial_observations": false,
-      "earlier_incidents_preserved": true
-    }
-  },
-  "DCA_RESEARCH_GATE": "BLOCKED_BY_DATA",
-  "actual_admitted_panel": {
-    "rows": 0,
-    "securities": 0,
-    "dates": null,
-    "US": false,
-    "EU": false,
-    "survivorship": "UNRESOLVED",
-    "admitted_domains": []
-  },
-  "readiness_contract": "configs/research_readiness_v1.json",
-  "admission_preflight": "reports/research-readiness-preflight.json"
+  "github_base_commit": "3ad752a5be7a1141433927ed7b275d8df7261ffc"
 }

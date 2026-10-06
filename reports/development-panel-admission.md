@@ -1,4 +1,58 @@
-# Development panel admission — 2026-10-05
+# Development panel admission — 2026-10-06 closure assessment
+
+**DCA_RESEARCH_GATE = BLOCKED_BY_DATA.** No actual PIT development panel is
+admitted: 0 rows, 0 securities, no admitted date range, no admitted US or EU
+coverage. All tiers remain unassigned. No financial model or OOS run occurred.
+This is an honest blocked checkpoint, not proof that free data cannot ever work.
+
+The merged software base remains intact. New evidence: 430 historical US delisted
+listing records (424 Stock, 6 ETF, 2 missing names), 2 splits and 34 dividends for
+one US demo instrument. The active listing request returned no listing data.
+Nine retained FRED captures contain 13,435 vintage rows; raw bounds, finite
+numeric values, keys, inclusive interval non-overlap and API count/offset checks
+PASS. Vintage rows/chunks are not distinct market sessions or a full macro basket.
+New action records pass basic date/key/amount checks; publication/correction and
+adjustment semantics are still unresolved. All 14 prior raw hashes reverified.
+See `raw-data-quality-results.json` and `observed-source-inventory.json`.
+
+| Required family | Current decision / exact missing evidence |
+|---|---|
+| Historical US/EU universe | METHODOLOGY_BLOCKED_BY_DATA: partial US listing sample only; no active cohort, EU historical master, stable identifiers, primary common-equity eligibility, ex-ante changes or terminal consideration |
+| OHLCV and original volume | METHODOLOGY_BLOCKED_BY_DATA: one US survivor sample; no admitted EU/delisted coverage, correction lineage, action reconciliation or original-unit volume |
+| Corporate actions | METHODOLOGY_BLOCKED_BY_DATA: RAW_ONLY split/dividend sample; no complete merger/spin-off/delisting ledger or publication/revision history |
+| HUF FX | METHODOLOGY_BLOCKED_BY_DATA: one-day MNB references, no historical availability/correction evidence or admitted full conversion legs |
+| Fundamentals | METHODOLOGY_BLOCKED_BY_DATA: SEC accession evidence is not a normalized PIT fact panel; EU coverage absent; dissemination, taxonomy, currencies, restatements and security mapping unresolved |
+| Macro/credit/conditions | METHODOLOGY_BLOCKED_BY_DATA: partial date-vintage samples; no admitted publication rules, full regional basket, units/geography/rights or curve stitching |
+| Market/sector context | METHODOLOGY_BLOCKED_BY_DATA: no dated benchmark/security/calendar/classification mapping or admitted context history |
+| Ex-ante events | METHODOLOGY_BLOCKED_BY_DATA: no schedule-known-at versions; realized event dates are insufficient |
+
+`configs/research_readiness_v1.json` covers every frozen feature raw dependency,
+execution-price/action/FX prerequisites and both regions. Its preflight evaluator
+lists evidence shortfalls; it **cannot** authenticate a panel or return READY.
+`research-readiness-preflight.json` is the reproducible blocked result, not leakage
+test evidence. No globally required family is waived as ordinary missingness.
+The final positive path requires independent artifact-bound real-panel validation
+that has not been implemented against actual data. It is not simulated here.
+
+No canonical panel, PIT snapshots, feature store or target store were fabricated.
+Real-panel leakage is **BLOCKED / NOT EXECUTED**, with the entire required check
+list in `real-panel-leakage-report.md`. Recession Core remains diagnostic-only,
+`HISTORICAL_DIAGNOSTIC_BLOCKED_BY_DATA_ADMISSION`; no real-input score generated.
+
+Each remedy, impact, paid candidate scope and purchase decision is in the updated
+`provider-decision-matrix.md`. Numeric costs remain unverified; request samples and
+quotes before deciding. No purchase, subscription or external provider contact.
+
+Four deliberate financial requests completed with pre-send historical bounds and
+redirects disabled. An earlier interrupted listing attempt has unknown dispatch
+count. Search/document excerpts incidentally exposed 2024+ observations; this phase
+does **not** claim zero exposure. Incident documentation is preserved, those values
+were not incorporated or used in decisions, and retrospective holdout remains
+**NOT RUN / NOT PRISTINE**. See `source-search-access-incident-2026-10-06.md`.
+
+The complete preceding report is preserved below as historical evidence.
+
+# Historical development panel admission — 2026-10-05
 
 **Decision: NOT ADMITTED.** Audit inventory completed; actual panel and admission
 evidence remain incomplete. All source tiers remain unassigned (empty CSV / JSON
