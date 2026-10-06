@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-06",
+  "evidence_kind": "ACTUAL_PROVIDER_RESPONSE",
+  "completed_requests": 4,
+  "interrupted_request_count": "UNKNOWN",
+  "prior_evidence": "reports/data-admission-evidence.json",
+  "captures": [
+    {
+      "provider": "alpha_vantage",
+      "endpoint": "/query",
+      "request_date": "2014-07-10",
+      "state": "active",
+      "redirects": false,
+      "http_status": 200,
+      "bytes": 2,
+      "rows": 0,
+      "response_kind": "non_listing_response",
+      "source_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "admission": "UNAVAILABLE",
+      "quality_tier": null,
+      "external_capture_group": "alpha_active",
+      "hash_verified": true
+    },
+    {
+      "provider": "alpha_vantage",
+      "endpoint": "/query",
+      "request_date": "2014-07-10",
+      "state": "delisted",
+      "redirects": false,
+      "http_status": 200,
+      "bytes": 30533,
+      "rows": 430,
+      "response_kind": "listing_csv",
+      "dates_within_request": true,
+      "source_hash": "1855ac651d3610a330a6befe333801d726c958556613ea8a98575e41e4e0e936",
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "external_capture_group": "alpha_delisted",
+      "hash_verified": true
+    },
+    {
+      "kind": "splits",
+      "http_status": 200,
+      "bytes": 103,
+      "rows": 2,
+      "from": "2010-01-01",
+      "to": "2020-12-31",
+      "redirects_allowed": false,
+      "date_envelope_pass": true,
+      "columns": [
+        "date",
+        "split"
+      ],
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "source_hash": "c636ccc676d53834523682f6be0e0f59a2188de8868634452604575298e85b04",
+      "provider": "eodhd_demo",
+      "endpoint": "/api/splits/AAPL.US",
+      "external_capture_group": "eodhd_splits",
+      "hash_verified": true
+    },
+    {
+      "kind": "div",
+      "http_status": 200,
+      "bytes": 6205,
+      "rows": 34,
+      "from": "2010-01-01",
+      "to": "2020-12-31",
+      "redirects_allowed": false,
+      "date_envelope_pass": true,
+      "columns": [
+        "date",
+        "declarationDate",
+        "recordDate",
+        "paymentDate",
+        "period",
+        "value",
+        "unadjustedValue",
+        "currency"
+      ],
+      "admission": "RAW_ONLY",
+      "quality_tier": null,
+      "source_hash": "59166f3ee50c0e2a9b39ce8e699bf2ffb027087ca308d7a3695af937833c4288",
+      "provider": "eodhd_demo",
+      "endpoint": "/api/div/AAPL.US",
+      "external_capture_group": "eodhd_div",
+      "hash_verified": true
+    }
+  ],
+  "listing_profile": {
+    "rows": 430,
+    "columns": [
+      "symbol",
+      "name",
+      "exchange",
+      "assetType",
+      "ipoDate",
+      "delistingDate",
+      "status"
+    ],
+    "asset_types": {
+      "Stock": 424,
+      "ETF": 6
+    },
+    "duplicate_symbols": 0,
+    "missing_names": 2,
+    "invalid_chronology": 0,
+    "missing_ipo": 0,
+    "missing_delist": 0
+  },
+  "financial_model_runs": 0,
+  "financial_oos_runs": 0,
+  "incidental_2024_plus_exposure": true
+}

@@ -18,3 +18,17 @@ but hashes and aggregate counts never replace semantics/rights/independent revie
 Source-search incident disclosed in source-search-access-incident-2026-10-06.md.
 Provider search is now closed; only explicit documentation and bounded endpoint
 requests are permitted. No evidence from incidental 2024+ results is admitted.
+
+Task 1: completed bounded source probes in priority order. Four completed requests:
+Alpha active (empty non-listing response), Alpha delisted (430 records), EODHD
+splits (2) and dividends (34). Every deliberate request fixed historical bounds
+before send and disabled redirects. An interrupted earlier Alpha attempt has an
+unknown dispatched count and no retained result. No secret was used in these probes.
+Source receipts/hashes and decision matrix committed; all new evidence RAW_ONLY
+or unavailable, no tier assignment. Later domains reused prior bounded captures
+and documented policy gaps; no unbounded/latest endpoint used as a substitute.
+Verification: raw hashes match, listing dates <= as-of, all sample event dates
+<=2023-12-31, Git diff-check PASS. No source code changed in Task 1.
+Ruling: do not enlarge MNB/FRED captures before resolving known semantics — more
+rows cannot establish vintage/publication truth — cost if wrong: deferred useful
+coverage acquisition, without contaminating the research gate.

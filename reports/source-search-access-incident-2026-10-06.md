@@ -19,3 +19,12 @@ follow unbounded endpoint links. Retrospective holdout remains NOT RUN / NOT PRI
 
 Earlier incident reports remain untouched. This record is disclosure, not a request
 to redesign methodology or reclassify the excluded period as pristine.
+
+Follow-up: the explicitly opened EODHD corporate-actions documentation also
+contained contemporary financial examples (including a 2026 event date) in the
+returned page excerpt. Documentation URLs alone therefore do not isolate dates.
+Those examples were not used or transcribed into acquisition evidence. Stop live
+provider-document discovery for this phase; use the already inspected interface
+contracts and explicit pre-cutoff sample endpoints. New deliberate financial
+requests remain bounded; incidental exposure is recorded separately from those
+requests and is not reported as zero.
