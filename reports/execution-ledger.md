@@ -220,3 +220,8 @@ Ruling: Task10 is staged snapshot orchestration, not a new provider facade. Exac
 - Final correction `41db8f6`:27expectedRED then126focusedGREEN;410subsystem/804fullPASS,compileall/diffcheckPASS. Independent `features_final_fix_review`:F1/F2/F3ADDRESSED,specPASS/qualityPASS,no new materialbreakage/no out-of-scopeissues. Whole-subsystem software gatePASS. Canonicaltargetnames barred, actualproducercohorts checked, stalepeerquotes excluded usingowncalendar. Financial/OOSruns0, realdataauditOPEN, retrospectiveNOT_RUN.
 
 Ruling: retain the dedicated research/development-v1 branch and full history for the user's checkpoint review; no merge, push, deployment or production handoff. This follows the requested human review stop point. The next research gate remains actual-panel admission and real-panel leakage, not another synthetic-test count. Final package contains committed source/reports and complete git bundle; ignored workflow recovery notes remain local.
+
+
+## Provider feasibility phase — 2026-10-07
+
+Authorized continuation on research/provider-feasibility-admission-closure from 2717926. See provider-feasibility-execution.md for task evidence and rulings. Financial experiments: none; model/OOS counters 0/0. No source or panel admitted; final state BLOCKED_BY_DATA. Retrospective holdout NOT_RUN.

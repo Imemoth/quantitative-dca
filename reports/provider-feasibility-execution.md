@@ -28,3 +28,21 @@ all matrix evidence IDs resolve; CSV parses; Git diff whitespace check passes.
 
 Task 2 RED: 17 new artifact-contract cases fail on missing phase deliverables or
 prior-phase status, as expected. No implementation source or frozen config changed.
+
+Task 2 complete: 17/17 new contracts GREEN, 63/63 focused admission/readiness tests
+PASS. All 94 slots and 12 dependencies mapped; eight mandatory families retained;
+23 macro topics and 22 blocked real-proof checks explicit. No empirical missingness
+rate for a zero-row panel. Current receipt records zero observation requests and
+incidental modern snippets, preserving the prior four requests/unknown interruption.
+
+Ruling: do not construct a nominal proof panel from unrelated raw samples — EU
+identity/fundamental/price and terminal joins are absent, and rights remain open —
+cost if wrong: deferred useful partial adapter evidence, not a weakened research gate.
+Ruling: preserve spec section11's audited proxy universe and flagged uncertain
+terminal sensitivity options — perfect institutional coverage is not silently made
+mandatory — cost if wrong: a proposed proxy still needs independent admission review.
+
+No new API adapters or model architecture were warranted by a documentation-only
+feasibility decision. New code is artifact-integrity tests only; all old tests kept.
+Prior reports remain preserved; status pages link to the new phase without rewriting
+their historical bodies. Task 3 independent review and full verification pending.

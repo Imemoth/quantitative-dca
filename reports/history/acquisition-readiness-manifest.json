@@ -1,5 +1,5 @@
 {
-  "status": "PROVIDER_FEASIBILITY_REVIEW_PENDING_BLOCKED_BY_DATA",
+  "status": "DATA_ACQUISITION_CLOSURE_REVIEW_PASS_BLOCKED_BY_DATA_HUMAN_REVIEW_REQUIRED",
   "foundation_software_pit_gate": {
     "status": "PASS",
     "verified_tests": 394,
@@ -41,7 +41,7 @@
     "real_panel_leakage_gate_pass": false
   },
   "lockbox_untouched_certified": false,
-  "latest_access_incident": "reports/source-documentation-incident-2026-10-07.md",
+  "latest_access_incident": "reports/source-search-access-incident-2026-10-06.md",
   "source_files": [
     {
       "path": "docs/quant-dca-engine-v1-design-spec.md",
@@ -104,33 +104,22 @@
     "true_forward": "NOT_STARTED_REQUIRES_FINAL_FREEZE"
   },
   "current_phase_access": {
-    "phase": "PROVIDER_FEASIBILITY_ADMISSION_CLOSURE",
-    "completed_financial_data_network_requests": 0,
-    "financial_data_network_requests": 0,
-    "interrupted_request_count": 0,
+    "phase": "DATA_ACQUISITION_ADMISSION_CLOSURE",
+    "completed_financial_data_network_requests": 4,
+    "financial_data_network_requests": null,
+    "interrupted_request_count": "UNKNOWN",
     "accessed_2024_plus_financial_observations": true,
     "deliberate_requests_bounded_before_send": true,
     "earlier_incidents_preserved": true,
-    "receipt": "reports/provider-feasibility-access.json",
+    "receipt": "reports/observed-source-inventory.json",
     "accessed_2024_plus_in_bounded_responses": false
   },
-  "github_base_commit": "2717926687378696e8b02a9ed7e3f4d4a4d8e1fe",
+  "github_base_commit": "e58bf6001446c3787bf8d5b11d4b1ab94ba8a4e6",
   "previous_phase_access": {
     "recession_core": {
       "financial_data_network_requests": 0,
       "accessed_2024_plus_financial_observations": false,
       "earlier_incidents_preserved": true
-    },
-    "data_acquisition_admission_closure": {
-      "phase": "DATA_ACQUISITION_ADMISSION_CLOSURE",
-      "completed_financial_data_network_requests": 4,
-      "financial_data_network_requests": null,
-      "interrupted_request_count": "UNKNOWN",
-      "accessed_2024_plus_financial_observations": true,
-      "deliberate_requests_bounded_before_send": true,
-      "earlier_incidents_preserved": true,
-      "receipt": "reports/observed-source-inventory.json",
-      "accessed_2024_plus_in_bounded_responses": false
     }
   },
   "DCA_RESEARCH_GATE": "BLOCKED_BY_DATA",
@@ -158,16 +147,5 @@
     "working_tree_diff_check": "PASS",
     "positive_real_panel_validator": "NOT_IMPLEMENTED_NO_ADMITTED_PANEL",
     "human_review_required": true
-  },
-  "provider_feasibility": {
-    "primary_state": "BLOCKED_BY_DATA",
-    "provider_review": "PENDING",
-    "pit_review": "PENDING",
-    "code_quality_review": "PENDING",
-    "report": "reports/provider-feasibility-final.md",
-    "contract": "configs/provider_feasibility_v1.json",
-    "proof_status": "reports/proof-panel-status.json",
-    "provider_observation_requests": 0,
-    "public_documentation_only": true
   }
 }

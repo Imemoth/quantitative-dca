@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "rows": 0,
+  "securities": 0,
+  "dates": null,
+  "US": false,
+  "EU": false,
+  "architecture_with_real_data": "NOT_ESTABLISHED",
+  "quality_gate": "BLOCKED_NOT_RUN",
+  "leakage_gate": "BLOCKED_NOT_RUN",
+  "blocker": "No admitted EU identity/price/fundamental sample; no joined terminal event, rights or historical clocks. Do not fabricate panel from unrelated raw captures.",
+  "checks": [
+    {
+      "check": "grain_uniqueness",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "date_continuity",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "OHLC_validity",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "currency_validity",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "corporate_action_chronology",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "historical_identity_continuity",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "publication_lag",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "revision_replay",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "FX_chronology",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "delisting_chronology",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "terminal_treatment",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "missingness_by_domain",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "no_future_availability",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "no_future_macro_revision",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "no_future_fundamental_restatement",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "no_future_membership",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "no_future_ticker_mapping",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "no_future_action_knowledge",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "target_isolation",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "no_future_FX",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "no_future_calendar_revision",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    },
+    {
+      "check": "train_only_normalization",
+      "status": "BLOCKED_NOT_RUN",
+      "reason": "No genuine admitted proof panel to exercise this check"
+    }
+  ]
+}

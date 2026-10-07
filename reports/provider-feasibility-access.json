@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-07",
+  "phase": "PROVIDER_FEASIBILITY_ADMISSION_CLOSURE",
+  "completed_requests": 0,
+  "interrupted_request_count": 0,
+  "captures": [],
+  "incidental_2024_plus_exposure": true,
+  "observation_requests_bounded_before_send": true,
+  "prior_observation_receipt": "reports/observed-source-inventory.json",
+  "documentation_evidence": "reports/provider-evidence.json",
+  "incident": "reports/source-documentation-incident-2026-10-07.md",
+  "financial_model_runs": 0,
+  "financial_oos_runs": 0
+}
