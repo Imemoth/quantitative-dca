@@ -46,3 +46,8 @@ No new API adapters or model architecture were warranted by a documentation-only
 feasibility decision. New code is artifact-integrity tests only; all old tests kept.
 Prior reports remain preserved; status pages link to the new phase without rewriting
 their historical bodies. Task 3 independent review and full verification pending.
+
+Recovery C0: original 52e56a4 exists and fsck passes; remote still 2717926.
+Ruling: CASE A recovery overrides the attachment's factually disproven CASE C
+premise. Preserve original history; apply C0–C5 cadence to remaining closure.
+Recovered full log: 971 PASS. Fresh C4 verification/reviews still pending.
