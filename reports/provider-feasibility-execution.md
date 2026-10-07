@@ -51,3 +51,27 @@ Recovery C0: original 52e56a4 exists and fsck passes; remote still 2717926.
 Ruling: CASE A recovery overrides the attachment's factually disproven CASE C
 premise. Preserve original history; apply C0–C5 cadence to remaining closure.
 Recovered full log: 971 PASS. Fresh C4 verification/reviews still pending.
+
+Closure scope supersession: user stopped C0–C5 expansion. No reconstruction or
+new infrastructure. Three uncommitted expansion-only tests were removed (original
+17 recovered tests retained byte-for-byte); their RED log was moved outside Git.
+Original state freshly verified: 971 full / 63 focused PASS. Three missing prior
+review artifacts are being replaced with scoped independent reviews; historical
+reviews of other phases are not reused.
+
+Data review Important FRED finding: categorical REJECT/current rights blocked
+overstates unresolved legal application. New regression failed on REJECT before
+correction. Now M1 is UNRESOLVED / LICENSING_REQUIRES_HUMAN_REVIEW; all data
+non-admission and zero-research guards remain. Source P22 is clarified, not removed.
+No provider observation request, purchase or outreach.
+
+Closure verification after D1: 64 focused PASS (0.23s), 972 full PASS (68.40s),
+compileall/diff-check/frozen-diff/Git fsck PASS. Independent data/PIT/quality reviews
+all PASS for BLOCKED assessment only; D1 resolved and independently checked.
+No open Critical/Important. Four nonblocking minors retained in review summary.
+Ruling on declined items: actual panel correctness, vendor completeness and legal
+clearance remain unresolved; no research authorization follows from review PASS.
+Final decision BLOCKED_BY_DATA; admitted 0 rows/0 securities; model/OOS 0/0;
+holdout NOT_RUN; prior incidental documentation exposure preserved.
+Next action: commit and normal push; one bundle/ZIP fallback only upon push failure.
+STOP for human review after preservation.

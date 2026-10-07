@@ -1,3 +1,7 @@
+> Superseded scope: the user stopped C0–C5 expansion. Only close the recovered
+> 52e56a4 state, resolve material reviews, verify and push; one bundle/ZIP fallback
+> only if push fails. The historical recovery record below is retained.
+
 # Provider-feasibility recovery — C0
 
 Date: 2026-10-07. Branch: research/provider-feasibility-admission-closure.

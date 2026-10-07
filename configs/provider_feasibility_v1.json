@@ -282,7 +282,7 @@
     "macro": {
       "primary": "original BLS/Fed/Treasury/ECB/Eurostat dated releases with independent rights",
       "free_official": "original BLS/Fed/Treasury/ECB/Eurostat dated releases with independent rights",
-      "free_commercial": "ALFRED technically relevant but current use rights blocked",
+      "free_commercial": "ALFRED technically relevant; LICENSING_REQUIRES_HUMAN_REVIEW before admission",
       "documented_proxy": "jurisdiction-appropriate curve/credit proxy only after economic/rights review",
       "low_cost_paid": "licensed original-vintage archive only for remaining proven gap",
       "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"

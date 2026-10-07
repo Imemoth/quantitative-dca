@@ -6,9 +6,18 @@ promoted to ADMITTED, no quality tier assigned, and no real proof panel built.
 This is a scoped feasibility conclusion, not proof that such data cannot exist.
 
 Branch: research/provider-feasibility-admission-closure. Base: 2717926.
+Original 52e56a4b5671995db251efeeadfa49774faca384 recovered intact: CASE A.
+No reconstruction; existing provider research preserved. Three missing review
+artifacts were replaced with scoped independent reviews. One Important FRED
+licensing-classification finding was fixed; no open Critical/Important findings.
 Frozen 94-slot feature dictionary (81 outputs plus 13 alternative regime slots),
 20-target contract, regime configuration and DCA methodology remain unchanged.
 Foundation, Features/Targets/Regimes and Recession Core software remain PASS.
+
+Fresh final software verification: **972/972 full-suite tests PASS**, **64/64
+focused tests PASS**, compileall and git diff --check PASS. All three independent
+reviews PASS for the blocked assessment; zero open Critical/Important findings.
+The FRED correction added one regression test; no original test was removed.
 
 ## What this phase resolved
 
@@ -94,10 +103,12 @@ Reviews must PASS for the correctness of this assessment, not for data admission
 
 ## Reproducibility and stop
 
-The checkpoint contains source, tests, configs, reports, Git history and software
-verification logs, with no private provider observations. The existing raw evidence
+The final Git commit contains source, tests, configs, reports and software
+verification evidence, with no private provider observations. Normal branch push
+is the preferred durable checkpoint; one bundle/ZIP fallback is created only if
+push fails. The existing raw evidence
 stays external and unadmitted. A separately retained original three-row replay
-fixture is required for two legacy ingestion tests; it is not embedded in this ZIP.
+fixture is required for two legacy ingestion tests; it is not committed or embedded in a public fallback ZIP.
 Restoration details and frozen hashes are in provider-feasibility-reproducibility.md.
 
 **STOP for human review.** No Models/Policy/Validation, OOS, DCA backtesting,

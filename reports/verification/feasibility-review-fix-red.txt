@@ -1,0 +1,17 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_unresolved_fred_licensing_is_not_reported_as_a_legal_prohibition _____
+
+    def test_unresolved_fred_licensing_is_not_reported_as_a_legal_prohibition():
+        matrix = {row['id']: row for row in rows('reports/provider-decision-matrix.csv')}
+        fred = matrix['M1']
+>       assert fred['recommended_decision'] == 'UNRESOLVED'
+E       AssertionError: assert 'REJECT' == 'UNRESOLVED'
+E         
+E         - UNRESOLVED
+E         + REJECT
+
+tests/admission/test_provider_feasibility_contract.py:150: AssertionError
+=========================== short test summary info ============================
+FAILED tests/admission/test_provider_feasibility_contract.py::test_unresolved_fred_licensing_is_not_reported_as_a_legal_prohibition
+1 failed, 17 deselected in 0.08s

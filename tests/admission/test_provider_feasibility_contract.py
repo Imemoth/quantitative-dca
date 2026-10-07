@@ -142,3 +142,16 @@ def test_macro_inventory_covers_all_required_topics_by_region_with_revision_limi
                       'request_bound', 'jurisdiction', 'evidence_ids', 'remediation'):
             assert row[field]
         assert row['admission_status'] in {'RAW_ONLY', 'MISSING'}
+
+
+def test_unresolved_fred_licensing_is_not_reported_as_a_legal_prohibition():
+    matrix = {row['id']: row for row in rows('reports/provider-decision-matrix.csv')}
+    fred = matrix['M1']
+    assert fred['recommended_decision'] == 'UNRESOLVED'
+    assert 'LICENSING_REQUIRES_HUMAN_REVIEW' in fred['licensing']
+    assert fred['admission_status'] == 'RAW_ONLY'
+    assert fred['quality_tier'] == ''
+    assert fred['current_status'] == 'METHODOLOGY_BLOCKED_BY_DATA'
+    fallback = document('configs/provider_feasibility_v1.json')['fallbacks']['macro']['free_commercial']
+    assert 'LICENSING_REQUIRES_HUMAN_REVIEW' in fallback
+    assert document('reports/readiness-manifest.json')['DCA_RESEARCH_GATE'] == 'BLOCKED_BY_DATA'

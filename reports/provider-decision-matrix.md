@@ -22,7 +22,7 @@ Prior matrix is preserved in history/acquisition-provider-decision-matrix.md.
 | F1 | fundamentals | SEC original accession archives | PREFERRED | METHODOLOGY_BLOCKED_BY_DATA |
 | F2 | fundamentals | Sharadar AR dimensions | PAID_FALLBACK | METHODOLOGY_BLOCKED_BY_DATA |
 | F3 | fundamentals | SimFin legacy bulk Python loader | REJECT | UNSUPPORTED_FOR_PIT |
-| M1 | macro | FRED/ALFRED API vintage route | REJECT | METHODOLOGY_BLOCKED_BY_DATA |
+| M1 | macro | FRED/ALFRED API vintage route | UNRESOLVED | METHODOLOGY_BLOCKED_BY_DATA |
 | M2 | macro | Eurostat latest API | REJECT | UNSUPPORTED_FOR_PIT |
 | M3 | macro | Original BLS/Fed/Treasury/ECB/Eurostat release archives | PREFERRED | METHODOLOGY_BLOCKED_BY_DATA |
 | X1 | fx | MNB historical reference quotes | PROXY_ONLY | PROXY_POSSIBLE_WITH_LIMITATION |

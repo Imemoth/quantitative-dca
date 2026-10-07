@@ -175,8 +175,8 @@
       "id": "P22",
       "url": "https://fred.stlouisfed.org/legal/",
       "strength": "official current service/API terms",
-      "claim": "Current terms contain broad software/ML-development restrictions and API storage/cache/archive restrictions; third-party series retain separate rights.",
-      "caveat": "Do not assume FRED free access licenses this reproducible model project. Obtain applicable permission or acquire independently from original sources; no conclusion about retroactive applicability.",
+      "claim": "Terms permit some personal/research/API uses while including broad software/ML and API storage restrictions; third-party series retain separate rights.",
+      "caveat": "LICENSING_REQUIRES_HUMAN_REVIEW: applicability to this workflow and original-owner rights remain unresolved. No categorical legal prohibition or permission inferred; no retroactive conclusion about older captures.",
       "accessed_at": "2026-10-07"
     },
     {

@@ -11,8 +11,11 @@ P23/P24. ALFRED date-vintage semantics were observed in prior captures, but exac
 publication time and full revision completeness are not established. Chunk start
 dates can clip vintage intervals; do not fabricate release dates from them.
 
-The current FRED terms present a material **rights blocker for the proposed
-software/model/archive workflow**. No new FRED data was fetched or model run.
+FRED/ALFRED status: **LICENSING_REQUIRES_HUMAN_REVIEW**. The official terms
+permit some personal/research/API uses while also containing broad software/ML
+and API-storage restrictions. Their application to this exact workflow, together
+with original data-owner rights, is unresolved. This prevents admission pending
+review; it is not a categorical legal prohibition or approval of research use. No new FRED data was fetched or model run.
 Current wording does not establish which terms governed older captures; those
 historical receipts remain preserved, unadmitted. No new redistribution of raw
 FRED data is included in this checkpoint. A direct BLS/Fed/Treasury/ECB/Eurostat

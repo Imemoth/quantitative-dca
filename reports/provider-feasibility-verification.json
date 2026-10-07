@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-10-07T15:12:02.300931+00:00",
+  "recovery_case": "A",
+  "original_recovered_commit": "52e56a4b5671995db251efeeadfa49774faca384",
+  "base_commit": "2717926687378696e8b02a9ed7e3f4d4a4d8e1fe",
+  "scope": "software/artifact verification only; no financial research",
+  "test_results": {
+    "full": {
+      "passed": 972,
+      "seconds": 68.4,
+      "path": "reports/verification/feasibility-pytest.txt",
+      "sha256": "4dc086d534425d71dd703c7897af42e121266330ac74044cf81a886c34c0431e",
+      "exit_code": 0
+    },
+    "targeted": {
+      "passed": 64,
+      "seconds": 0.23,
+      "path": "reports/verification/feasibility-targeted.txt",
+      "sha256": "4ca072f39b215b09f4c85b2e7b7ff4ee06300c16e074aa4d19f9114884822ffd",
+      "exit_code": 0
+    }
+  },
+  "checks": {
+    "compileall": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "diff_check": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "frozen_methodology": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "git_integrity": {
+      "exit_code": 0,
+      "status": "PASS"
+    }
+  },
+  "frozen_sha256": {
+    "docs/quant-dca-engine-v1-design-spec.md": "5469510597cdade8c1f5f654d0dbab9a61a45c30944e372973a2ffada5e70e50",
+    "configs/features_v1.yaml": "5cd158753edb0511778c51b023c6306abcb49568da10cc6b9b5be1f2d2634d0d",
+    "configs/regimes_v1.yaml": "dd6b69349cef43cae643d6da2c74519e3ba154cb62236d47c82c04437930dcaa",
+    "reports/feature-dictionary.csv": "9ae01f5b155b7639fd708462ca072f787f5c678e283544ade22f0e12d482292f",
+    "reports/target-dictionary.csv": "e6c120d28c6862dd30fe7a37dcb76076822d77ffaa5d237cb1b31cef3e47e9b8"
+  },
+  "reviews": "reports/provider-feasibility-independent-reviews.md",
+  "open_critical": 0,
+  "open_important": 0,
+  "financial_model_runs": 0,
+  "financial_oos_runs": 0,
+  "retrospective_holdout": "NOT_RUN",
+  "real_panel_leakage": "BLOCKED_BY_DATA_ADMISSION",
+  "DCA_RESEARCH_GATE": "BLOCKED_BY_DATA"
+}
