@@ -75,3 +75,8 @@ Final decision BLOCKED_BY_DATA; admitted 0 rows/0 securities; model/OOS 0/0;
 holdout NOT_RUN; prior incidental documentation exposure preserved.
 Next action: commit and normal push; one bundle/ZIP fallback only upon push failure.
 STOP for human review after preservation.
+
+Final staging found trailing whitespace in the newly added RED test log, which
+working-tree diff --check had not inspected while the file was untracked. Removed
+log-line trailing spaces only; test outcome unchanged. Final branch-range/staged
+whitespace checks rerun before final preservation. No source/test logic changed.
