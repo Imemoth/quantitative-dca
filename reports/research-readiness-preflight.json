@@ -1,0 +1,426 @@
+{
+  "status": "BLOCKED_BY_DATA",
+  "preflight_only": true,
+  "blockers": [
+    {
+      "family": "historical_universe",
+      "code": "NOT_ADMITTED"
+    },
+    {
+      "family": "historical_universe",
+      "code": "REGION_COVERAGE"
+    },
+    {
+      "family": "historical_universe",
+      "code": "DATE_COVERAGE"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:source_evidence_and_rights"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:coverage_and_grain"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:reproducible_ids"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:availability_chronology"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:publication_and_revision"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:units_and_currency"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:source_lineage"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:quality_justification"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:mapping_integrity"
+    },
+    {
+      "family": "historical_universe",
+      "code": "CHECK:temporal_stability"
+    },
+    {
+      "family": "ohlcv",
+      "code": "NOT_ADMITTED"
+    },
+    {
+      "family": "ohlcv",
+      "code": "REGION_COVERAGE"
+    },
+    {
+      "family": "ohlcv",
+      "code": "DATE_COVERAGE"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:source_evidence_and_rights"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:coverage_and_grain"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:reproducible_ids"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:availability_chronology"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:publication_and_revision"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:units_and_currency"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:source_lineage"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:quality_justification"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:mapping_integrity"
+    },
+    {
+      "family": "ohlcv",
+      "code": "CHECK:temporal_stability"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "NOT_ADMITTED"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "REGION_COVERAGE"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "DATE_COVERAGE"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:source_evidence_and_rights"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:coverage_and_grain"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:reproducible_ids"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:availability_chronology"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:publication_and_revision"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:units_and_currency"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:source_lineage"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:quality_justification"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:mapping_integrity"
+    },
+    {
+      "family": "corporate_actions",
+      "code": "CHECK:temporal_stability"
+    },
+    {
+      "family": "fx",
+      "code": "NOT_ADMITTED"
+    },
+    {
+      "family": "fx",
+      "code": "DATE_COVERAGE"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:source_evidence_and_rights"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:coverage_and_grain"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:reproducible_ids"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:availability_chronology"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:publication_and_revision"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:units_and_currency"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:source_lineage"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:quality_justification"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:mapping_integrity"
+    },
+    {
+      "family": "fx",
+      "code": "CHECK:temporal_stability"
+    },
+    {
+      "family": "fundamentals",
+      "code": "NOT_ADMITTED"
+    },
+    {
+      "family": "fundamentals",
+      "code": "REGION_COVERAGE"
+    },
+    {
+      "family": "fundamentals",
+      "code": "DATE_COVERAGE"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:source_evidence_and_rights"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:coverage_and_grain"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:reproducible_ids"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:availability_chronology"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:publication_and_revision"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:units_and_currency"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:source_lineage"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:quality_justification"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:mapping_integrity"
+    },
+    {
+      "family": "fundamentals",
+      "code": "CHECK:temporal_stability"
+    },
+    {
+      "family": "macro",
+      "code": "NOT_ADMITTED"
+    },
+    {
+      "family": "macro",
+      "code": "DATE_COVERAGE"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:source_evidence_and_rights"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:coverage_and_grain"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:reproducible_ids"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:availability_chronology"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:publication_and_revision"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:units_and_currency"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:source_lineage"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:quality_justification"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:mapping_integrity"
+    },
+    {
+      "family": "macro",
+      "code": "CHECK:temporal_stability"
+    },
+    {
+      "family": "market_context",
+      "code": "NOT_ADMITTED"
+    },
+    {
+      "family": "market_context",
+      "code": "NOT_REAL_EVIDENCE"
+    },
+    {
+      "family": "market_context",
+      "code": "REGION_COVERAGE"
+    },
+    {
+      "family": "market_context",
+      "code": "DATE_COVERAGE"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:source_evidence_and_rights"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:coverage_and_grain"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:reproducible_ids"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:availability_chronology"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:publication_and_revision"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:units_and_currency"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:source_lineage"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:quality_justification"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:mapping_integrity"
+    },
+    {
+      "family": "market_context",
+      "code": "CHECK:temporal_stability"
+    },
+    {
+      "family": "event_calendars",
+      "code": "NOT_ADMITTED"
+    },
+    {
+      "family": "event_calendars",
+      "code": "NOT_REAL_EVIDENCE"
+    },
+    {
+      "family": "event_calendars",
+      "code": "REGION_COVERAGE"
+    },
+    {
+      "family": "event_calendars",
+      "code": "DATE_COVERAGE"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:source_evidence_and_rights"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:coverage_and_grain"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:reproducible_ids"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:availability_chronology"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:publication_and_revision"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:units_and_currency"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:source_lineage"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:quality_justification"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:mapping_integrity"
+    },
+    {
+      "family": "event_calendars",
+      "code": "CHECK:temporal_stability"
+    },
+    {
+      "family": "panel",
+      "code": "INDEPENDENT_REAL_PANEL_EVIDENCE_REQUIRED"
+    }
+  ]
+}

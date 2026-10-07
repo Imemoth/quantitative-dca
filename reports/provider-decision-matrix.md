@@ -1,4 +1,36 @@
-# Prototype provider decision matrix — BLOCKED partial freeze
+# Provider decision matrix — acquisition closure, 2026-10-06
+
+Current decision: **BLOCKED_BY_DATA**; no purchase made. The historical matrix
+below is preserved as dated evidence, not current admission. New bounded probes
+are in `acquisition-source-probes-2026-10-06.md`. No source is ADMITTED.
+
+| Domain / importance | Free route and missing capability | Methodological impact | Cheapest credible next step; paid candidate scope | Purchase justified now? |
+|---|---|---|---|---|
+| US universe / critical | Alpha historical listing sample lacks stable IDs, primary common-equity eligibility, known-at changes, active cohort and terminal proceeds | Survivorship/selection bias | Verify historical Alpha access plus dated issuer/exchange actions; request bounded EODHD sample. Norgate US delisted package only if pre-2024 bounded export and terminal coverage demonstrated | No blind subscription; scoped pilot quote/sample warranted |
+| EU universe / critical | No acquired historical master; US listings/ADRs cannot replace EU equities | No valid EU sample or regional comparison | Dated exchange/OAM archives; LSEG historical security/action archive candidate, exact venues/extinct names/query bounds unverified | Sample and quote first; no verified vendor solution or price |
+| US/EU OHLCV/actions / critical | One active US bar sample, two splits and 34 dividends; no EU panel, merger/spin-off/correction/terminal ledger, verified original volume | False dips/fills/returns and survivor bias | Reconcile issuer actions with vendor equations; bounded EODHD historical entitlement may cover part; test delisted US/EU names before commitment | Low-cost pilot potentially justified after semantics and rights proof; institutional convenience purchase unjustified |
+| HUF FX / critical | MNB date-only reference quotes; publication and corrections unproven; prior-day proxy not approved | Wrong execution chronology and HUF costs | Obtain dated MNB publication/correction policy first; timestamped LSEG FX archive candidate if necessary | No; policy clarification precedes purchase |
+| US fundamentals / high | SEC documents are not normalized PIT facts or security mapping | Restatement and filing-lag leakage | Scoped original-filing extraction after dissemination/mapping review; LSEG PIT fundamentals candidate for normalization/vintages | No broad purchase before sample and effort estimate |
+| EU fundamentals / high | No acquired 2010–2023 issuer/OAM/ESEF panel | Geographic/accounting selection bias | Verify jurisdiction archives; LSEG PIT archive needs original/restated versions, publication and delisted proof | Coverage/price inquiry only |
+| Macro/credit/conditions / high | Partial bounded FRED vintages; clocks, full basket, jurisdiction and third-party rights absent | Revision and wrong-jurisdiction bias | Original releases and series-level rights first; paid vintage/credit license only for exact unresolved required series | Not yet; substantial free verification remains |
+| Market/sector context / high | No historical mapping or admitted benchmarks; current constituents insufficient | Composition/relative-return bias | Dated index-owner files; STOXX/LSEG candidate for scoped historical classification/index records | Sample/licensing verification first |
+| Ex-ante calendars / high | Realized dates are not advance-known schedule versions | Event look-ahead | Archived official/issuer schedules; any vendor must show original announcement-known-at and reschedules | No generic calendar purchase without vintage sample |
+
+Costs are **unquoted/unverified**, not zero or invented estimates. These are scoped
+remediation candidates, not a conclusion that trustworthy free data is impossible.
+The next human decision is whether to obtain samples/quotes and policy evidence
+for the critical universe/action blockers. No purchase or provider outreach was
+performed. No family was deleted and no survivors-only study was substituted.
+
+Candidate-only official documentation inspected 2026-10-06:
+[Norgate FAQ](https://norgatedata.com/data-package-faq.php),
+[Norgate scope](https://norgatedata.com/data-content-tables.php),
+[LSEG factsheet](https://www.lseg.com/content/dam/data-analytics/en_us/documents/fact-sheets/lseg-quant-cloud-fact-sheet.pdf).
+Norgate US delisted access is package-dependent; EU index coverage is not EU equity
+coverage. LSEG PIT/restated/delisted claims have no observed sample here. Neither
+candidate has verified bounded retrieval, quotas, license or pricing in this audit.
+
+# Historical Task 0 matrix — retained unchanged below
 
 Documentation audit date: 2026-09-11. Scope: Data & PIT Foundation Task 0 only.
 

@@ -1,0 +1,241 @@
+{
+  "audit_date": "2026-10-06",
+  "scope": "RAW structure only; not canonical admission, calendar completeness, economic reconciliation or real-panel leakage",
+  "prior_hashes_reverified": 14,
+  "fred": [
+    {
+      "source_hash": "80d08f7e8746f551392aded2606e2dca479abb8b5b400776776301599fe9b3b4",
+      "source_id": "CPIAUCSL",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2010-01-01",
+        "realtime_end": "2023-12-31"
+      },
+      "rows": 830,
+      "distinct_observation_dates": 167,
+      "missing_value_rows": 0,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "left_boundary_intervals": 0,
+      "right_boundary_intervals": 167,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    },
+    {
+      "source_hash": "4694d64693f228dcab50a171d9c215a3024b4c3f4691d6b6a6b8752174b0474c",
+      "source_id": "CPILFESL",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2010-01-01",
+        "realtime_end": "2023-12-31"
+      },
+      "rows": 822,
+      "distinct_observation_dates": 167,
+      "missing_value_rows": 0,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "left_boundary_intervals": 0,
+      "right_boundary_intervals": 167,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    },
+    {
+      "source_hash": "d2a8a5b2debf9abacdd7d5f434603742968b16c0591d97ef48c31ffb4c78b882",
+      "source_id": "FEDFUNDS",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2010-01-01",
+        "realtime_end": "2023-12-31"
+      },
+      "rows": 169,
+      "distinct_observation_dates": 167,
+      "missing_value_rows": 0,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "left_boundary_intervals": 0,
+      "right_boundary_intervals": 167,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    },
+    {
+      "source_hash": "5cab72748c8af9029f6a366a2865896ab3c3efe1ab715e4c67d5f24c6c9305fa",
+      "source_id": "UNRATE",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2010-01-01",
+        "realtime_end": "2023-12-31"
+      },
+      "rows": 296,
+      "distinct_observation_dates": 167,
+      "missing_value_rows": 0,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "left_boundary_intervals": 0,
+      "right_boundary_intervals": 167,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    },
+    {
+      "source_hash": "142b57055bc254e856f04d3dd927759eabc6e56cc33ac4f5035a4bd1520d0b98",
+      "source_id": "CP0000EZ19M086NEST",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2010-01-01",
+        "realtime_end": "2023-12-31"
+      },
+      "rows": 362,
+      "distinct_observation_dates": 167,
+      "missing_value_rows": 0,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-11-01",
+      "left_boundary_intervals": 0,
+      "right_boundary_intervals": 167,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    },
+    {
+      "source_hash": "9184a33dec0c5a61331ce32b7e04c229f07c45f8b0c8bd8be824d520593edfd3",
+      "source_id": "DGS10",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2010-01-01",
+        "realtime_end": "2016-12-31"
+      },
+      "rows": 1826,
+      "distinct_observation_dates": 1825,
+      "missing_value_rows": 74,
+      "observation_start": "2010-01-01",
+      "observation_end": "2016-12-29",
+      "left_boundary_intervals": 0,
+      "right_boundary_intervals": 1825,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    },
+    {
+      "source_hash": "23c2b578847d88befd4e32ee5e8a288b207b48f502e9561bf79256b310f557f1",
+      "source_id": "DGS10",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2017-01-01",
+        "realtime_end": "2023-12-31"
+      },
+      "rows": 3653,
+      "distinct_observation_dates": 3650,
+      "missing_value_rows": 150,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-12-28",
+      "left_boundary_intervals": 1825,
+      "right_boundary_intervals": 3650,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    },
+    {
+      "source_hash": "94f9a64d997c0c650f8a32338038572abdb0d335194d7b5a683814b2ddf8e4d5",
+      "source_id": "DGS2",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2010-01-01",
+        "realtime_end": "2016-12-31"
+      },
+      "rows": 1826,
+      "distinct_observation_dates": 1825,
+      "missing_value_rows": 75,
+      "observation_start": "2010-01-01",
+      "observation_end": "2016-12-29",
+      "left_boundary_intervals": 0,
+      "right_boundary_intervals": 1825,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    },
+    {
+      "source_hash": "9f75704502ea5c7d29654e9cd8eeb4088db19d4985eb8b2f4bd4b0c11dc12b29",
+      "source_id": "DGS2",
+      "request_bounds": {
+        "observation_start": "2010-01-01",
+        "observation_end": "2023-12-31",
+        "realtime_start": "2017-01-01",
+        "realtime_end": "2023-12-31"
+      },
+      "rows": 3651,
+      "distinct_observation_dates": 3650,
+      "missing_value_rows": 150,
+      "observation_start": "2010-01-01",
+      "observation_end": "2023-12-28",
+      "left_boundary_intervals": 1825,
+      "right_boundary_intervals": 3650,
+      "raw_structure": "PASS",
+      "complete_history_proven": false,
+      "admission": "RAW_ONLY",
+      "quality_tier": null
+    }
+  ],
+  "actions": [
+    {
+      "source_hash": "c636ccc676d53834523682f6be0e0f59a2188de8868634452604575298e85b04",
+      "kind": "splits",
+      "rows": 2,
+      "duplicate_dates": 0,
+      "within_request": true,
+      "invalid_ratios": 0
+    },
+    {
+      "source_hash": "59166f3ee50c0e2a9b39ce8e699bf2ffb027087ca308d7a3695af937833c4288",
+      "kind": "div",
+      "rows": 34,
+      "duplicate_dates": 0,
+      "within_request": true,
+      "currency_counts": {
+        "USD": 34
+      },
+      "negative_or_nonfinite_amounts": 0,
+      "missing_event_dates": 0,
+      "declaration_after_exdate": 0,
+      "payment_before_exdate": 0
+    }
+  ],
+  "actual_admitted_panel_rows": 0,
+  "real_panel_leakage": "BLOCKED_NOT_EXECUTED",
+  "financial_model_runs": 0,
+  "financial_oos_runs": 0,
+  "ohlcv": {
+    "source_hash": "ac37c9c3a7b1a5255ad92ae247c16f07db29b4a5c8abdc8e54687cc0bc270c07",
+    "rows": 3522,
+    "distinct_dates": 3522,
+    "observation_start": "2010-01-04",
+    "observation_end": "2023-12-29",
+    "high_below_low": 0,
+    "negative_volume": 0,
+    "nonfinite_numeric_rows": 0,
+    "open_close_outside_range": 0,
+    "duplicate_dates": 0,
+    "calendar_completeness": "NOT_PROVEN",
+    "original_volume_basis": "NOT_PROVEN",
+    "economic_adjustments": "NOT_RECONCILED",
+    "admission": "RAW_ONLY",
+    "quality_tier": null
+  }
+}

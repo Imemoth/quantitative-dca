@@ -1,0 +1,175 @@
+{
+  "audit_date": "2026-10-06",
+  "scope": "Declarations summarize blocked evidence; partial region coverage is not admission",
+  "source_inventory": "reports/observed-source-inventory.json",
+  "prior_captures": "reports/data-admission-evidence.json",
+  "families": {
+    "historical_universe": {
+      "admission": "RAW_ONLY",
+      "evidence_kind": "ACTUAL_PROVIDER_RESPONSE",
+      "regions": [
+        "US"
+      ],
+      "coverage_start": null,
+      "coverage_end": null,
+      "checks": {
+        "source_evidence_and_rights": false,
+        "coverage_and_grain": false,
+        "reproducible_ids": false,
+        "availability_chronology": false,
+        "publication_and_revision": false,
+        "units_and_currency": false,
+        "source_lineage": false,
+        "quality_justification": false,
+        "mapping_integrity": false,
+        "temporal_stability": false
+      }
+    },
+    "ohlcv": {
+      "admission": "RAW_ONLY",
+      "evidence_kind": "ACTUAL_PROVIDER_RESPONSE",
+      "regions": [
+        "US"
+      ],
+      "coverage_start": null,
+      "coverage_end": null,
+      "checks": {
+        "source_evidence_and_rights": false,
+        "coverage_and_grain": false,
+        "reproducible_ids": false,
+        "availability_chronology": false,
+        "publication_and_revision": false,
+        "units_and_currency": false,
+        "source_lineage": false,
+        "quality_justification": false,
+        "mapping_integrity": false,
+        "temporal_stability": false
+      }
+    },
+    "corporate_actions": {
+      "admission": "RAW_ONLY",
+      "evidence_kind": "ACTUAL_PROVIDER_RESPONSE",
+      "regions": [
+        "US"
+      ],
+      "coverage_start": null,
+      "coverage_end": null,
+      "checks": {
+        "source_evidence_and_rights": false,
+        "coverage_and_grain": false,
+        "reproducible_ids": false,
+        "availability_chronology": false,
+        "publication_and_revision": false,
+        "units_and_currency": false,
+        "source_lineage": false,
+        "quality_justification": false,
+        "mapping_integrity": false,
+        "temporal_stability": false
+      }
+    },
+    "fx": {
+      "admission": "RAW_ONLY",
+      "evidence_kind": "ACTUAL_PROVIDER_RESPONSE",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "coverage_start": null,
+      "coverage_end": null,
+      "checks": {
+        "source_evidence_and_rights": false,
+        "coverage_and_grain": false,
+        "reproducible_ids": false,
+        "availability_chronology": false,
+        "publication_and_revision": false,
+        "units_and_currency": false,
+        "source_lineage": false,
+        "quality_justification": false,
+        "mapping_integrity": false,
+        "temporal_stability": false
+      }
+    },
+    "fundamentals": {
+      "admission": "RAW_ONLY",
+      "evidence_kind": "ACTUAL_PROVIDER_RESPONSE",
+      "regions": [
+        "US"
+      ],
+      "coverage_start": null,
+      "coverage_end": null,
+      "checks": {
+        "source_evidence_and_rights": false,
+        "coverage_and_grain": false,
+        "reproducible_ids": false,
+        "availability_chronology": false,
+        "publication_and_revision": false,
+        "units_and_currency": false,
+        "source_lineage": false,
+        "quality_justification": false,
+        "mapping_integrity": false,
+        "temporal_stability": false
+      }
+    },
+    "macro": {
+      "admission": "RAW_ONLY",
+      "evidence_kind": "ACTUAL_PROVIDER_RESPONSE",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "coverage_start": null,
+      "coverage_end": null,
+      "checks": {
+        "source_evidence_and_rights": false,
+        "coverage_and_grain": false,
+        "reproducible_ids": false,
+        "availability_chronology": false,
+        "publication_and_revision": false,
+        "units_and_currency": false,
+        "source_lineage": false,
+        "quality_justification": false,
+        "mapping_integrity": false,
+        "temporal_stability": false
+      }
+    },
+    "market_context": {
+      "admission": "MISSING",
+      "evidence_kind": "NONE",
+      "regions": [],
+      "coverage_start": null,
+      "coverage_end": null,
+      "checks": {
+        "source_evidence_and_rights": false,
+        "coverage_and_grain": false,
+        "reproducible_ids": false,
+        "availability_chronology": false,
+        "publication_and_revision": false,
+        "units_and_currency": false,
+        "source_lineage": false,
+        "quality_justification": false,
+        "mapping_integrity": false,
+        "temporal_stability": false
+      }
+    },
+    "event_calendars": {
+      "admission": "MISSING",
+      "evidence_kind": "NONE",
+      "regions": [],
+      "coverage_start": null,
+      "coverage_end": null,
+      "checks": {
+        "source_evidence_and_rights": false,
+        "coverage_and_grain": false,
+        "reproducible_ids": false,
+        "availability_chronology": false,
+        "publication_and_revision": false,
+        "units_and_currency": false,
+        "source_lineage": false,
+        "quality_justification": false,
+        "mapping_integrity": false,
+        "temporal_stability": false
+      }
+    }
+  },
+  "panel": null
+}
