@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-07",
+  "scope": "public documentation and prior evidence metadata; no new provider observations",
+  "claims": [
+    {
+      "id": "P01",
+      "url": "reports/observed-source-inventory.json",
+      "strength": "retained bounded response metadata",
+      "claim": "One Alpha historical delisted response contains 430 records; active request yielded no listing rows.",
+      "caveat": "No complete active cohort, stable identity or terminal payoff.",
+      "accessed_at": "2026-10-06"
+    },
+    {
+      "id": "P02",
+      "url": "reports/data-admission-evidence.json",
+      "strength": "retained bounded response metadata",
+      "claim": "Prior FRED, SEC, EODHD and MNB captures exist with hashes.",
+      "caveat": "RAW_ONLY; neither admission nor broad regional coverage.",
+      "accessed_at": "2026-10-05"
+    },
+    {
+      "id": "P03",
+      "url": "https://norgatedata.com/data-package-faq.php",
+      "strength": "official technical FAQ",
+      "claim": "US asset IDs persist, but prior names/tickers and historical sector classifications are absent. Corrections overwrite history without versioning. Terminal returns, recoveries and post-delisting events are not provided; fundamentals are latest-only.",
+      "caveat": "Historical constituents alone cannot close identity, PIT and terminal requirements. Local API limits do not establish bounded network acquisition.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P04",
+      "url": "https://norgatedata.com/stockmarketpackages.php",
+      "strength": "official package/pricing table",
+      "claim": "US Platinum includes delisted history from 1990, priced USD630/year or USD346.50/six months.",
+      "caveat": "No demonstrated EU equity solution; sample/updater date isolation and use rights unverified.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P05",
+      "url": "https://sharadar.com/docs/fundamentals",
+      "strength": "official schema/API documentation",
+      "claim": "US domestic form-10 fundamentals offer ARQ/ARY/ART filing-date views from 1998 and separate restated dimensions; from/to filter filing date.",
+      "caveat": "No tested response, exact dissemination clock, historical completeness or all-period revision replay. Not an EU panel.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P06",
+      "url": "https://sharadar.com/docs/stocks",
+      "strength": "official schema/API documentation",
+      "claim": "US active/delisted daily prices have traded-date from/to filters; OHLCV split-adjusted, with unadjusted close and total-return-adjusted close fields.",
+      "caveat": "Unadjusted reconstruction and action reconciliation need real evidence; no correction-vintage proof.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P07",
+      "url": "https://sharadar.com/docs/actions",
+      "strength": "official schema/API documentation",
+      "claim": "Dated actions cover splits, dividends, identity events and acquisition counterparties; from/to bound action date; schema has numeric value and counterparty.",
+      "caveat": "Effective date is not announcement time; no observed economic or revision reconciliation.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P08",
+      "url": "https://sharadar.com/docs/tickers",
+      "strength": "official schema/API documentation",
+      "claim": "Permanent share-class IDs exist, but ticker metadata is a snapshot. Its from/to parameters constrain lastpricedate, not historical known-at time.",
+      "caveat": "Bounding lastpricedate excludes still-trading names and does not reconstruct a historical universe. No ticker endpoint queried.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P09",
+      "url": "https://sharadar.com/docs/faqs",
+      "strength": "official semantic documentation",
+      "claim": "Actions document cash/share acquisition amounts, elective alternatives, historical SIC and venue changes. AR records are described as unreplaced by later restatements. Raw OHLC uses closeunadj/close; raw volume uses its reciprocal. CVRs are excluded.",
+      "caveat": "Coverage percentages are vendor assertions, not measured evidence; classification-to-sector mapping and bankruptcy recoveries remain untested.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P10",
+      "url": "https://sharadar.com/subscribe",
+      "strength": "official public tariff",
+      "claim": "Full History Bundle USD69/month or USD499/year; 5/10-year tiers do not span 2010 through 2023 when purchased now.",
+      "caveat": "Personal-use pricing, not a commercial quote; no purchase.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P11",
+      "url": "https://sharadar.com/terms",
+      "strength": "official license text",
+      "claim": "Personal natural-person use only; public evaluation disclosure requires written approval. Termination entails data deletion within 30 days, with limited non-reconstructable output retention.",
+      "caveat": "Publication and reproducibility rights must be settled before a paid pilot; no data evaluation or API sampling performed here.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P12",
+      "url": "https://sharadar.com/docs/auth",
+      "strength": "official authentication documentation",
+      "claim": "A public demo key permits AAPL table queries.",
+      "caveat": "Does not permit other-security access; no authenticated/private key used or account created.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P13",
+      "url": "https://eodhd.com/financial-apis/delisted-stock-companies-data-2",
+      "strength": "official endpoint documentation",
+      "claim": "Delisted lists are exchange snapshots without an as-of filter in the documented parameter set. Pre-2018 delisted coverage is described as EOD-only; symbol-change history is US-only.",
+      "caveat": "Missing earlier delisted actions/fundamentals and EU identity history; endpoint not called.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P14",
+      "url": "https://eodhd.com/financial-apis/api-for-historical-data-and-volumes",
+      "strength": "official field semantics",
+      "claim": "EOD documentation describes raw OHLC, split/dividend-adjusted close and split-adjusted volume with from/to queries.",
+      "caveat": "Original-share volume requires factors; retained samples are not reconciled. Modern examples and contemporary coverage counts were excluded.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P15",
+      "url": "https://github.com/SimFin/simfin/blob/master/simfin/load.py",
+      "strength": "official client source",
+      "claim": "load() downloads the dataset before applying start_date/end_date locally.",
+      "caveat": "Reject this loader for development acquisition; this does not prove every alternative API endpoint is unbounded.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P16",
+      "url": "https://www.simfin.com/en/prices/",
+      "strength": "official tariff/history/retention table",
+      "claim": "Annual-billed monthly prices: START15, BASIC35, PRO71 USD. History differs by API/bulk tier; page includes as-reported variants and requires deletion after cancellation.",
+      "caveat": "Exact historical entitlement is inconsistent across page sections; bounded vintage API and EU coverage unproved.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P17",
+      "url": "https://www.simfin.com/en/fundamental-data-download/",
+      "strength": "official coverage description",
+      "claim": "US fundamentals download described; other geographic expansion is prospective.",
+      "caveat": "Not evidence of a complete historical EU equity panel.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P18",
+      "url": "https://www.crsp.org/wp-content/uploads/2023/10/crsp_us_stock.pdf",
+      "strength": "official dated technical guide",
+      "claim": "US stock schema contains permanent identifiers, distributions and delisting price/payment/amount/return fields.",
+      "caveat": "No entitlement, sample, missing-terminal-rate audit, EU coverage or frozen revision snapshot verified.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P19",
+      "url": "https://www.lseg.com/en/data-analytics/financial-data/company-data/fundamentals-data/point-in-time-fundamentals",
+      "strength": "official discovery page plus redirect",
+      "claim": "Current catalogue describes global fundamentals including PIT; historical PIT search entry claims retained originals.",
+      "caveat": "URL redirects to broader catalogue; no selected product schema, quote, bounded extraction contract or sample verified. Marketing coverage is not admission.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P20",
+      "url": "https://www.esma.europa.eu/issuer-disclosure/electronic-reporting",
+      "strength": "official reporting-format documentation",
+      "claim": "ESEF documents a reporting framework and annual-report preparation guidance.",
+      "caveat": "Does not itself supply 2010-2023 normalized fundamentals, complete listings or publication-vintage ledger.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P21",
+      "url": "https://fred.stlouisfed.org/docs/api/fred/series_observations.html",
+      "strength": "official API parameter documentation",
+      "claim": "Observation and realtime bounds can both be specified; date-level vintage fields differ from publication time.",
+      "caveat": "Retained response chunk boundaries do not prove complete vintages; no current API observations requested.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P22",
+      "url": "https://fred.stlouisfed.org/legal/",
+      "strength": "official current service/API terms",
+      "claim": "Current terms contain broad software/ML-development restrictions and API storage/cache/archive restrictions; third-party series retain separate rights.",
+      "caveat": "Do not assume FRED free access licenses this reproducible model project. Obtain applicable permission or acquire independently from original sources; no conclusion about retroactive applicability.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P23",
+      "url": "https://ec.europa.eu/eurostat/web/user-guides/data-browser/api-data-access/api-introduction",
+      "strength": "official API semantics",
+      "claim": "Eurostat says its database holds latest datasets without past-version documentation.",
+      "caveat": "Observation-date filters cannot recover historical revisions.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P24",
+      "url": "https://ec.europa.eu/eurostat/web/user-guides/data-browser/api-data-access/api-detailed-guidelines/sdmx3-0/data-query",
+      "strength": "official API parameter documentation",
+      "claim": "SDMX data queries support time and dimension filters.",
+      "caveat": "Bounded dates do not imply vintage availability.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P25",
+      "url": "reports/mnb-publication-policy-audit.md",
+      "strength": "prior official documentation audit plus bounded sample",
+      "claim": "MNB startDate/endDate, HUF per quoted currency unit and date-only sample are evidenced.",
+      "caveat": "Fixing is not publication; historical correction policy and full calendar continuity unproved.",
+      "accessed_at": "2026-09-17"
+    },
+    {
+      "id": "P26",
+      "url": "https://www.ecb.europa.eu/stats/pdf/exchange/Frameworkfortheeuroforeignexchangereferencerates.en.pdf",
+      "strength": "official current policy document",
+      "claim": "Retrieved framework is dated 2026 and describes reference-rate methodology.",
+      "caveat": "Not evidence that its timing/revision rules applied throughout 2010-2023; not an executable FX quote. No rate data fetched.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P27",
+      "url": "https://www.bls.gov/schedule/2023/",
+      "strength": "official historical-year schedule page",
+      "claim": "A 2023 release schedule is accessible.",
+      "caveat": "Current historical-year page alone does not establish ex-ante schedule versions or cancellation history.",
+      "accessed_at": "2026-10-07"
+    },
+    {
+      "id": "P28",
+      "url": "reports/sec-archive-audit-2026-09-14.md",
+      "strength": "retained bounded original filing/index audit",
+      "claim": "Dated SEC quarterly indexes and one original 2010 filing with acceptance metadata were observed.",
+      "caveat": "No complete normalized historical facts/security mapping; acceptance is not independently proven public dissemination.",
+      "accessed_at": "2026-09-14"
+    },
+    {
+      "id": "P29",
+      "url": "reports/provider-validation-2026-09-12.md",
+      "strength": "prior bounded failed response evidence",
+      "claim": "EU EODHD demo and Stooq paths failed; one US EODHD sample succeeded.",
+      "caveat": "A failed sample does not prove paid coverage absent, nor does US success prove EU access.",
+      "accessed_at": "2026-09-12"
+    },
+    {
+      "id": "P30",
+      "url": "https://www.euronext.com/en/data/products/historical-data",
+      "strength": "documentation retrieval failure",
+      "claim": "Inspected URL was not retrievable by the web tool.",
+      "caveat": "Only a source-discovery lead, not proof of coverage, price, permissions or impossibility.",
+      "accessed_at": "2026-10-07"
+    }
+  ]
+}
