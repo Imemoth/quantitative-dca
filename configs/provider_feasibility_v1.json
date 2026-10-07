@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "purpose": "feasibility metadata only; does not authorize acquisition, admission or models",
+  "development": {
+    "start": "2010-01-01",
+    "end": "2023-12-31"
+  },
+  "feasibility_classes": [
+    "ADMITTABLE_FREE",
+    "ADMITTABLE_LOW_COST",
+    "ADMITTABLE_ONLY_PAID",
+    "PROXY_POSSIBLE_WITH_LIMITATION",
+    "UNSUPPORTED_FOR_PIT",
+    "METHODOLOGY_BLOCKED_BY_DATA"
+  ],
+  "decisions": [
+    "PREFERRED",
+    "ACCEPTABLE",
+    "PROXY_ONLY",
+    "REJECT",
+    "PAID_FALLBACK",
+    "UNRESOLVED"
+  ],
+  "provider_required_columns": [
+    "id",
+    "domain",
+    "provider",
+    "region",
+    "free_paid",
+    "historical_coverage",
+    "delisted_coverage",
+    "pit_capable",
+    "vintage_capable",
+    "publication_timestamp",
+    "corporate_actions",
+    "terminal_economics",
+    "request_bounded",
+    "unit_semantics",
+    "currency_semantics",
+    "rate_limit",
+    "licensing",
+    "current_status",
+    "quality_confidence",
+    "methodological_risk",
+    "recommended_decision",
+    "evidence_ids",
+    "admission_status"
+  ],
+  "positive_feasibility_is_admission": false,
+  "tiny_proof_authorizes_research": false,
+  "requires_human_model_authorization": true,
+  "fallback_order": [
+    "primary",
+    "free_official",
+    "free_commercial",
+    "documented_proxy",
+    "low_cost_paid",
+    "methodology_blocked"
+  ],
+  "mvrp": {
+    "historical_universe": {
+      "requirement": "mandatory",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "dependencies": [
+        "membership",
+        "historical_currency"
+      ],
+      "global_absence_allowed": false,
+      "proxy_activation_requires_review": true,
+      "classification": "METHODOLOGY_BLOCKED_BY_DATA",
+      "blocker": "active/delisted primary identity and known-at intervals absent",
+      "evidence_ids": [
+        "P01",
+        "P08",
+        "P13",
+        "P18",
+        "P20",
+        "P30"
+      ],
+      "degradable_scope": "only legitimate per-security structural/young-history missingness under frozen contract",
+      "proxy_scope": "audited historical proxy with delisted names; never present-day survivors"
+    },
+    "ohlcv": {
+      "requirement": "mandatory",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "dependencies": [
+        "price_history",
+        "unadjusted_close",
+        "original_unit_volume"
+      ],
+      "global_absence_allowed": false,
+      "proxy_activation_requires_review": true,
+      "classification": "METHODOLOGY_BLOCKED_BY_DATA",
+      "blocker": "EU missing; actions and original-unit volume unreconciled",
+      "evidence_ids": [
+        "P02",
+        "P06",
+        "P14",
+        "P29"
+      ],
+      "degradable_scope": "only legitimate per-security structural/young-history missingness under frozen contract",
+      "proxy_scope": "none for executable future opens"
+    },
+    "corporate_actions": {
+      "requirement": "mandatory",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "dependencies": [
+        "corporate_actions"
+      ],
+      "global_absence_allowed": false,
+      "proxy_activation_requires_review": true,
+      "classification": "METHODOLOGY_BLOCKED_BY_DATA",
+      "blocker": "missing identity events spin-offs terminal proceeds and known-at revisions",
+      "evidence_ids": [
+        "P01",
+        "P07",
+        "P09",
+        "P13"
+      ],
+      "degradable_scope": "only legitimate per-security structural/young-history missingness under frozen contract",
+      "proxy_scope": "flag unreliable terminal values and sensitivity per spec; not zero or last-bar liquidation"
+    },
+    "fx": {
+      "requirement": "mandatory",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "dependencies": [
+        "fx_quotes"
+      ],
+      "global_absence_allowed": false,
+      "proxy_activation_requires_review": true,
+      "classification": "METHODOLOGY_BLOCKED_BY_DATA",
+      "blocker": "date-only quote and unknown historical correction/availability",
+      "evidence_ids": [
+        "P25",
+        "P26"
+      ],
+      "degradable_scope": "only legitimate per-security structural/young-history missingness under frozen contract",
+      "proxy_scope": "lagged reference quote only after historical timing/revision review"
+    },
+    "fundamentals": {
+      "requirement": "mandatory",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "dependencies": [
+        "fundamentals"
+      ],
+      "global_absence_allowed": false,
+      "proxy_activation_requires_review": true,
+      "classification": "METHODOLOGY_BLOCKED_BY_DATA",
+      "blocker": "no normalized vintage sequence and primary-security linkage",
+      "evidence_ids": [
+        "P05",
+        "P11",
+        "P15",
+        "P19",
+        "P20",
+        "P28"
+      ],
+      "degradable_scope": "only legitimate per-security structural/young-history missingness under frozen contract",
+      "proxy_scope": "sector-inapplicable structural missing only; no latest-restated substitute"
+    },
+    "macro": {
+      "requirement": "mandatory",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "dependencies": [
+        "macro"
+      ],
+      "global_absence_allowed": false,
+      "proxy_activation_requires_review": true,
+      "classification": "METHODOLOGY_BLOCKED_BY_DATA",
+      "blocker": "incomplete basket publication clocks vintage completeness and use rights",
+      "evidence_ids": [
+        "P21",
+        "P22",
+        "P23"
+      ],
+      "degradable_scope": "only legitimate per-security structural/young-history missingness under frozen contract",
+      "proxy_scope": "jurisdiction-appropriate curve/credit proxy only after economic/rights review"
+    },
+    "market_context": {
+      "requirement": "mandatory",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "dependencies": [
+        "classification",
+        "market"
+      ],
+      "global_absence_allowed": false,
+      "proxy_activation_requires_review": true,
+      "classification": "METHODOLOGY_BLOCKED_BY_DATA",
+      "blocker": "no admitted historical classification benchmark calendar or volatility context",
+      "evidence_ids": [
+        "P03",
+        "P08",
+        "P09",
+        "P14"
+      ],
+      "degradable_scope": "only legitimate per-security structural/young-history missingness under frozen contract",
+      "proxy_scope": "index or ETF context permitted by spec; no current-sector backfill"
+    },
+    "event_calendars": {
+      "requirement": "mandatory",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "dependencies": [
+        "event_calendar"
+      ],
+      "global_absence_allowed": false,
+      "proxy_activation_requires_review": true,
+      "classification": "METHODOLOGY_BLOCKED_BY_DATA",
+      "blocker": "no ex-ante earnings or complete US/EU schedule vintage ledger",
+      "evidence_ids": [
+        "P27",
+        "P28"
+      ],
+      "degradable_scope": "only legitimate per-security structural/young-history missingness under frozen contract",
+      "proxy_scope": "no realized-date proxy for ex-ante scheduled-event features"
+    }
+  },
+  "fallbacks": {
+    "historical_universe": {
+      "primary": "US dated SEC/venue records; EU OAM/venue archives",
+      "free_official": "US dated SEC/venue records; EU OAM/venue archives",
+      "free_commercial": "Alpha historical listings as discovery only",
+      "documented_proxy": "audited historical proxy with delisted names; never present-day survivors",
+      "low_cost_paid": "Sharadar bounded actions plus historical seed; CRSP US; EU LSEG scope enquiry",
+      "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"
+    },
+    "ohlcv": {
+      "primary": "dated exchange/vendor raw sessions",
+      "free_official": "dated exchange/vendor raw sessions",
+      "free_commercial": "EODHD US demo; EU entitlement unverified",
+      "documented_proxy": "none for executable future opens",
+      "low_cost_paid": "EODHD regional entitlement or Sharadar US plus validated factors",
+      "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"
+    },
+    "corporate_actions": {
+      "primary": "dated issuer/exchange corporate notices",
+      "free_official": "dated issuer/exchange corporate notices",
+      "free_commercial": "EODHD split/dividend sample only",
+      "documented_proxy": "flag unreliable terminal values and sensitivity per spec; not zero or last-bar liquidation",
+      "low_cost_paid": "Sharadar US actions; EU event export with terms proof",
+      "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"
+    },
+    "fx": {
+      "primary": "MNB dated publications or historical ECB fixings",
+      "free_official": "MNB dated publications or historical ECB fixings",
+      "free_commercial": "no verified alternative commercial free timestamped source",
+      "documented_proxy": "lagged reference quote only after historical timing/revision review",
+      "low_cost_paid": "timestamped historical FX entitlement after rights review",
+      "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"
+    },
+    "fundamentals": {
+      "primary": "SEC original accessions; EU issuer/OAM originals",
+      "free_official": "SEC original accessions; EU issuer/OAM originals",
+      "free_commercial": "SimFin bounded as-reported API only if separately evidenced; legacy loader rejected",
+      "documented_proxy": "sector-inapplicable structural missing only; no latest-restated substitute",
+      "low_cost_paid": "Sharadar AR US; LSEG EU PIT enquiry",
+      "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"
+    },
+    "macro": {
+      "primary": "original BLS/Fed/Treasury/ECB/Eurostat dated releases with independent rights",
+      "free_official": "original BLS/Fed/Treasury/ECB/Eurostat dated releases with independent rights",
+      "free_commercial": "ALFRED technically relevant; LICENSING_REQUIRES_HUMAN_REVIEW before admission",
+      "documented_proxy": "jurisdiction-appropriate curve/credit proxy only after economic/rights review",
+      "low_cost_paid": "licensed original-vintage archive only for remaining proven gap",
+      "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"
+    },
+    "market_context": {
+      "primary": "index-owner dated series/mappings and historical sector notices",
+      "free_official": "index-owner dated series/mappings and historical sector notices",
+      "free_commercial": "bounded commercial index sample after mapping; none admitted",
+      "documented_proxy": "index or ETF context permitted by spec; no current-sector backfill",
+      "low_cost_paid": "index-owner history entitlement; bounded vendor series",
+      "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"
+    },
+    "event_calendars": {
+      "primary": "original dated schedule announcements and issuer notices",
+      "free_official": "original dated schedule announcements and issuer notices",
+      "free_commercial": "none with proven historical announcement and reschedule ledger",
+      "documented_proxy": "no realized-date proxy for ex-ante scheduled-event features",
+      "low_cost_paid": "vendor schedule archive only after known-at sample proof",
+      "methodology_blocked": "STOP BLOCKED_BY_DATA; present exact unmet capability and human decision"
+    }
+  },
+  "macro_required_topics": {
+    "US": [
+      "headline_inflation",
+      "core_inflation",
+      "unemployment",
+      "policy_rate",
+      "treasury_3m",
+      "treasury_2y",
+      "treasury_10y",
+      "hy_spread",
+      "ig_spread",
+      "financial_conditions",
+      "central_bank_liquidity",
+      "activity"
+    ],
+    "EU": [
+      "headline_inflation",
+      "core_inflation",
+      "unemployment",
+      "ecb_policy",
+      "non_eur_policy",
+      "sovereign_curve",
+      "hy_spread",
+      "ig_spread",
+      "financial_conditions",
+      "central_bank_liquidity",
+      "activity"
+    ]
+  },
+  "scope_notes": [
+    "All eight families remain globally mandatory in both regions.",
+    "Audited historical proxy universe and flagged unreliable terminal cases remain possible under spec section11; neither is admitted here.",
+    "No numerical minimum sample-size or coverage percentage is invented by this phase. Full eligible denominator and gaps need human-approved admission evidence."
+  ]
+}

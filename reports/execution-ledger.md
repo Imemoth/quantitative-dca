@@ -220,3 +220,16 @@ Ruling: Task10 is staged snapshot orchestration, not a new provider facade. Exac
 - Final correction `41db8f6`:27expectedRED then126focusedGREEN;410subsystem/804fullPASS,compileall/diffcheckPASS. Independent `features_final_fix_review`:F1/F2/F3ADDRESSED,specPASS/qualityPASS,no new materialbreakage/no out-of-scopeissues. Whole-subsystem software gatePASS. Canonicaltargetnames barred, actualproducercohorts checked, stalepeerquotes excluded usingowncalendar. Financial/OOSruns0, realdataauditOPEN, retrospectiveNOT_RUN.
 
 Ruling: retain the dedicated research/development-v1 branch and full history for the user's checkpoint review; no merge, push, deployment or production handoff. This follows the requested human review stop point. The next research gate remains actual-panel admission and real-panel leakage, not another synthetic-test count. Final package contains committed source/reports and complete git bundle; ignored workflow recovery notes remain local.
+
+
+## Provider feasibility phase — 2026-10-07
+
+Authorized continuation on research/provider-feasibility-admission-closure from 2717926. See provider-feasibility-execution.md for task evidence and rulings. Financial experiments: none; model/OOS counters 0/0. No source or panel admitted; final state BLOCKED_BY_DATA. Retrospective holdout NOT_RUN.
+
+## Provider feasibility closure — 2026-10-07
+Original 52e56a4 recovered (CASE A), no reconstruction. One material review finding
+on licensing classification fixed by RED/GREEN regression. 972 full / 64 focused
+tests PASS; compileall/diff-check PASS. Three scoped independent reviews PASS.
+DCA_RESEARCH_GATE BLOCKED_BY_DATA; 0 admitted rows/securities; financial model/OOS
+runs 0; retrospective holdout NOT_RUN. No new financial observation request.
+Detailed review/verification/decisions: provider-feasibility-final.md.

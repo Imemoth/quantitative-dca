@@ -1,3 +1,5 @@
+> 2026-10-07: Superseded for current-phase feasibility by reports/provider-feasibility-final.md. DCA_RESEARCH_GATE remains BLOCKED_BY_DATA; no source admitted, no real proof panel, model/OOS 0/0, holdout NOT_RUN. Current access receipt: reports/provider-feasibility-access.json; incidental documentation exposure disclosed. Historical report follows unchanged.
+
 # Development panel admission — 2026-10-06 closure assessment
 
 **DCA_RESEARCH_GATE = BLOCKED_BY_DATA.** No actual PIT development panel is

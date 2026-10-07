@@ -1,115 +1,37 @@
-# Provider decision matrix — acquisition closure, 2026-10-06
+# Provider decisions — 2026-10-07
 
-Current decision: **BLOCKED_BY_DATA**; no purchase made. The historical matrix
-below is preserved as dated evidence, not current admission. New bounded probes
-are in `acquisition-source-probes-2026-10-06.md`. No source is ADMITTED.
+Authoritative table: [provider-decision-matrix.csv](provider-decision-matrix.csv).
+All requested fields, evidence IDs and bounded-query qualifications are in that
+single table. This page is its decision index, not an alternative source of status.
+Claims and caveats: [provider-evidence.json](provider-evidence.json). No quality
+tier assigned; ACCEPTABLE/PREFERRED mean next candidate to investigate, not admitted.
+Prior matrix is preserved in history/acquisition-provider-decision-matrix.md.
 
-| Domain / importance | Free route and missing capability | Methodological impact | Cheapest credible next step; paid candidate scope | Purchase justified now? |
+| ID | Domain | Provider | Decision | Feasibility classification |
 |---|---|---|---|---|
-| US universe / critical | Alpha historical listing sample lacks stable IDs, primary common-equity eligibility, known-at changes, active cohort and terminal proceeds | Survivorship/selection bias | Verify historical Alpha access plus dated issuer/exchange actions; request bounded EODHD sample. Norgate US delisted package only if pre-2024 bounded export and terminal coverage demonstrated | No blind subscription; scoped pilot quote/sample warranted |
-| EU universe / critical | No acquired historical master; US listings/ADRs cannot replace EU equities | No valid EU sample or regional comparison | Dated exchange/OAM archives; LSEG historical security/action archive candidate, exact venues/extinct names/query bounds unverified | Sample and quote first; no verified vendor solution or price |
-| US/EU OHLCV/actions / critical | One active US bar sample, two splits and 34 dividends; no EU panel, merger/spin-off/correction/terminal ledger, verified original volume | False dips/fills/returns and survivor bias | Reconcile issuer actions with vendor equations; bounded EODHD historical entitlement may cover part; test delisted US/EU names before commitment | Low-cost pilot potentially justified after semantics and rights proof; institutional convenience purchase unjustified |
-| HUF FX / critical | MNB date-only reference quotes; publication and corrections unproven; prior-day proxy not approved | Wrong execution chronology and HUF costs | Obtain dated MNB publication/correction policy first; timestamped LSEG FX archive candidate if necessary | No; policy clarification precedes purchase |
-| US fundamentals / high | SEC documents are not normalized PIT facts or security mapping | Restatement and filing-lag leakage | Scoped original-filing extraction after dissemination/mapping review; LSEG PIT fundamentals candidate for normalization/vintages | No broad purchase before sample and effort estimate |
-| EU fundamentals / high | No acquired 2010–2023 issuer/OAM/ESEF panel | Geographic/accounting selection bias | Verify jurisdiction archives; LSEG PIT archive needs original/restated versions, publication and delisted proof | Coverage/price inquiry only |
-| Macro/credit/conditions / high | Partial bounded FRED vintages; clocks, full basket, jurisdiction and third-party rights absent | Revision and wrong-jurisdiction bias | Original releases and series-level rights first; paid vintage/credit license only for exact unresolved required series | Not yet; substantial free verification remains |
-| Market/sector context / high | No historical mapping or admitted benchmarks; current constituents insufficient | Composition/relative-return bias | Dated index-owner files; STOXX/LSEG candidate for scoped historical classification/index records | Sample/licensing verification first |
-| Ex-ante calendars / high | Realized dates are not advance-known schedule versions | Event look-ahead | Archived official/issuer schedules; any vendor must show original announcement-known-at and reschedules | No generic calendar purchase without vintage sample |
+| U1 | historical_universe | Alpha Vantage LISTING_STATUS | REJECT | METHODOLOGY_BLOCKED_BY_DATA |
+| U2 | historical_universe;corporate_actions | EODHD delisted/symbol lists | REJECT | METHODOLOGY_BLOCKED_BY_DATA |
+| U3 | historical_universe;terminal_economics;fundamentals | Norgate US Platinum | REJECT | UNSUPPORTED_FOR_PIT |
+| U4 | historical_universe;terminal_economics;corporate_actions | Sharadar actions plus master | PAID_FALLBACK | METHODOLOGY_BLOCKED_BY_DATA |
+| U5 | historical_universe;terminal_economics;ohlcv;corporate_actions | CRSP US Stock database | PAID_FALLBACK | METHODOLOGY_BLOCKED_BY_DATA |
+| U6 | historical_universe;terminal_economics;fundamentals | EU issuer/OAM/exchange archives | UNRESOLVED | METHODOLOGY_BLOCKED_BY_DATA |
+| U7 | historical_universe;terminal_economics;fundamentals | LSEG PIT/company data and corporate actions enquiry | PAID_FALLBACK | METHODOLOGY_BLOCKED_BY_DATA |
+| O1 | ohlcv;corporate_actions | EODHD bounded EOD/split/dividend endpoints | ACCEPTABLE | METHODOLOGY_BLOCKED_BY_DATA |
+| O2 | ohlcv | Stooq attempted bounded CSV | REJECT | METHODOLOGY_BLOCKED_BY_DATA |
+| O3 | ohlcv;corporate_actions | Sharadar stocks/actions | PAID_FALLBACK | METHODOLOGY_BLOCKED_BY_DATA |
+| F1 | fundamentals | SEC original accession archives | PREFERRED | METHODOLOGY_BLOCKED_BY_DATA |
+| F2 | fundamentals | Sharadar AR dimensions | PAID_FALLBACK | METHODOLOGY_BLOCKED_BY_DATA |
+| F3 | fundamentals | SimFin legacy bulk Python loader | REJECT | UNSUPPORTED_FOR_PIT |
+| M1 | macro | FRED/ALFRED API vintage route | UNRESOLVED | METHODOLOGY_BLOCKED_BY_DATA |
+| M2 | macro | Eurostat latest API | REJECT | UNSUPPORTED_FOR_PIT |
+| M3 | macro | Original BLS/Fed/Treasury/ECB/Eurostat release archives | PREFERRED | METHODOLOGY_BLOCKED_BY_DATA |
+| X1 | fx | MNB historical reference quotes | PROXY_ONLY | PROXY_POSSIBLE_WITH_LIMITATION |
+| X2 | fx | ECB reference-rate cross conversion | PROXY_ONLY | PROXY_POSSIBLE_WITH_LIMITATION |
+| C1 | market_context | Index-owner historical files and classification histories | UNRESOLVED | METHODOLOGY_BLOCKED_BY_DATA |
+| E1 | event_calendars | Official historical release schedules and issuer notices | UNRESOLVED | METHODOLOGY_BLOCKED_BY_DATA |
 
-Costs are **unquoted/unverified**, not zero or invented estimates. These are scoped
-remediation candidates, not a conclusion that trustworthy free data is impossible.
-The next human decision is whether to obtain samples/quotes and policy evidence
-for the critical universe/action blockers. No purchase or provider outreach was
-performed. No family was deleted and no survivors-only study was substituted.
-
-Candidate-only official documentation inspected 2026-10-06:
-[Norgate FAQ](https://norgatedata.com/data-package-faq.php),
-[Norgate scope](https://norgatedata.com/data-content-tables.php),
-[LSEG factsheet](https://www.lseg.com/content/dam/data-analytics/en_us/documents/fact-sheets/lseg-quant-cloud-fact-sheet.pdf).
-Norgate US delisted access is package-dependent; EU index coverage is not EU equity
-coverage. LSEG PIT/restated/delisted claims have no observed sample here. Neither
-candidate has verified bounded retrieval, quotas, license or pricing in this audit.
-
-# Historical Task 0 matrix — retained unchanged below
-
-Documentation audit date: 2026-09-11. Scope: Data & PIT Foundation Task 0 only.
-
-**No complete provider matrix is frozen. No real research dataset was acquired.** Two adapter designs have enough documented semantics to identify in configuration; neither is a validated live integration. All other configuration slots remain null. Naming a candidate below does not grant access, establish coverage, purchase a subscription, or authorize ingestion. A separate lockbox documentation-exposure incident requires user disclosure/review before further research; see `lockbox-access-incident.md`.
-
-Evidence is primary provider documentation inspected via web search/open/find. Within this provider-audit subtask, this agent requested no financial-data API, bulk archive, current constituent list, or current company-facts payload. For whole-session request history, see `reports/preflight-verification.md`: the parent made a bounded Stooq request for 2023-01-03 through 2023-01-06, receiving HTTP 404 and no data. Actual per-security/per-series historical coverage remains unverified. Documentation marketing coverage must never become observed coverage metadata.
-
-## Decision and coverage by the eleven required domains
-
-Tier A requires actual publication timestamps and retained revisions. Tier B denotes reliable historical values with timestamp/revision limitations. Tier C denotes reconstruction/proxy uncertainty. Candidate tier ceilings below are conditional, not certifications. Missing or blocked data is not a Tier C observation.
-
-| Domain | Primary design/candidate, decision and tier ceiling | Fallback candidate, decision and tier ceiling | Coverage start and scope | Dataset / fields needed | Remaining blocker |
-|---|---|---|---|---|---|
-| US macro vintages | FRED/ALFRED `fred_alfred`: selected design; B until release-time evidence, A per verified observation | Original agency releases (BLS for CPI/unemployment subset): blocked; B API / A archived release conditional | Series-specific start and 2010–2023 vintage completeness unverified; BLS cannot replace policy, curves, credit and liquidity domains | `/fred/series/observations`, `/fred/series/vintagedates`; series ID, observation period, value, realtime interval, release timestamp | API key/access unverified; vintage date has no intraday time; full required macro basket and third-party series rights unverified [1–3] |
-| EU macro vintages | Eurostat + ECB source bundle: blocked for vintage qualification; B latest data, C reconstructed release archive | ALFRED EU series subset: blocked; B/A conditional | Start unverified for every required series and local monetary jurisdiction; no claim of full EU vintage coverage | Eurostat Statistics/SDMX; ECB SDMX candidate; HICP/core, unemployment, policy rates, curves, credit/conditions proxies, units and vintages | Eurostat explicitly has no historical versions; ECB API documentation unavailable in audit; non-EUR rates and credit proxies unresolved [4–5] |
-| US OHLCV | EODHD EOD: blocked; B historical / C execution proxy | Alpha Vantage daily: blocked; B conditional | EODHD claims 30+ years for many instruments, not each symbol; Alpha Vantage exact permitted history unverified | EOD endpoint or daily function; raw OHLC, original-unit volume, exchange, currency, adjustment metadata | No eligible full-history access verified; free EODHD past-year window is outside permitted research history; fallback bounded pre-cutoff retrieval unverified [6–7] |
-| EU OHLCV | EODHD EOD: blocked; B/C conditional | Alpha Vantage global daily: blocked; B conditional | Exact EU MICs, primary listings, delisted names and 2010–2023 completeness unverified for both | Same price fields, plus exchange suffix→MIC and currency mapping | Commercial access and venue mapping unverified; global coverage is not EU eligibility evidence [6–7] |
-| FX | ECB reference-rate SDMX design: blocked; B | MNB date-range export: blocked; B | Exact ECB USD/EUR/HUF starts unverified; MNB exposes currency/frequency metadata, but required pair history not audited | Date, currency, reference value, quote unit, publication and correction timestamps; HUF-base cross-rate derivation | ECB bounded endpoint docs failed; historical release-time policy and correction capture unresolved; MNB extraction/license details unverified [5,8–9] |
-| US fundamentals | SEC `sec_pre_cutoff_filings`: selected accession-archive design; A only with verified dissemination time, otherwise B | EODHD fundamentals: blocked; B/C | SEC says XBRL first required in 2009; issuer/tag coverage and earliest actual usable filing unverified; fallback start unverified | Date-bounded EDGAR indices then pre-cutoff accession documents; accession, form, acceptance/dissemination, fiscal period, taxonomy/context/unit and fact | Current companyfacts/submissions JSON is not date-bounded; historical tags and announcement-vs-filing lag require audit; estimates/surprise not supplied by filings [10–12] |
-| EU fundamentals | Issuer/OAM archived filings with ESEF extraction: blocked; A/B conditional | SEC IFRS foreign-filer subset: blocked; A/B conditional | Exact issuer/country coverage start unverified; ESEF is a format framework, not proof of a 2010 pan-EU archive; SEC subset cannot stand in for EU universe | IFRS facts, report period, publication time, original document, corrections, local registry identity | No verified archive endpoints or publication ledger across required jurisdictions; taxonomy comparability unresolved [10,13] |
-| Corporate actions | EODHD splits/dividends: blocked; B | Dated issuer/exchange announcements: blocked; A/B conditional | Exact event-type/security coverage starts unverified | Split factor; dividend amount/currency, declaration/ex/pay dates; merger/spinoff/delisting terms and availability | API documentation discovered; access and event fields not fully inspected before research halt; complete terminal economics unverified [14] |
-| Historical universe/delistings | Alpha Vantage listing status: blocked; B/C proxy | EODHD delistings / historical index components: blocked; B/C proxy | Alpha Vantage documents dates later than 2010-01-01; US stocks/ETFs only; fallback start and EU coverage unverified | Effective listing intervals, security type, exchange, identifier history, delisting cause/consideration | No verified complete primary-common-equity US+EU membership ledger; listing status is not terminal-return data [7,15–16] |
-| Sector/index context | Dated STOXX/index-owner component files: blocked; A/B conditional | Historical eligible-universe sector portfolio reconstructed from dated filings: blocked; C | Exact historical sector classifications, index families and start dates unverified | Membership intervals, classification version, index/sector returns, rebalance/publication times | File-guide discovery only; entitlements/history unverified; latest classifications must not be projected backward [17] |
-| Scheduled event calendars | Archived official agency/issuer calendars: blocked; A only for preserved advance schedule | Vendor earnings/economic calendars: blocked; C until schedule-vintage evidence | BLS 2023 schedule found; 2010–2023 advance snapshots and US/EU issuer coverage unverified | Event ID, originally scheduled time, schedule-known-at, reschedule/cancel versions, actual release time | Actual historical event date alone does not establish what had been scheduled earlier; fallback historical schedule versions unverified [18,7] |
-
-## Timestamp, revision and adjustment requirements
-
-These are proposed admission controls, not claims about provider capabilities.
-
-| Source family | Publication and revision treatment | Corporate-action behavior / normalization |
-|---|---|---|
-| FRED/ALFRED | Explicitly bound both observation dates and realtime/vintage dates before 2024. Retain every returned realtime interval. Obtain contemporaneous release-time evidence separately; otherwise a documented conservative next-day rule remains Tier B and is not an observed timestamp. | Not applicable to macro levels; do not mistake changes in series definition for market actions. |
-| Eurostat / ECB macro | A current revised history cannot be assigned its original release date as if it were the old value. Quarantine from PIT features absent vintage evidence; retrospective proxy experiments require separate explicit permission and Tier C labeling. `updatedAfter` (if later verified) must not be presumed a historical snapshot facility. | Not applicable; retain units, seasonal adjustment, geography and definition versions. |
-| Price vendors | EOD trading date is not publication time. Require exchange timezone, provider publication lag and corrected-snapshot lineage. Backward-adjusted history must not enter raw execution accounting. | EODHD documents unadjusted OHLC, split/dividend-adjusted close, and split-adjusted volume. Original-unit volume requires explicit recovery/verification; using returned volume as raw liquidity is prohibited. |
-| FX references | ECB methodology permits republication; a daily value is not automatically revision-free. Current methodology does not establish historical rules. Require historical effective policy and actual availability; no fabricated midnight stamp. | Reference rates are informational, not executable quotes. Normalize quote units; cross-rate availability is the latest availability of its legs. Costs remain separate. |
-| SEC / issuer filings | Select original and amended filings by availability, retaining accession/document hashes; never overwrite facts with later restatements. Acceptance must not be assumed equal to public dissemination without verification. | Preserve split contexts, fiscal currency, shares units and taxonomy; normalize explicit transformations. No earnings-surprise claims without contemporary estimate history. |
-| Actions / membership / context | Announcement-known-at and effective-at are distinct. Retain cancellations, corrections, identifier changes, and interval ends. A historical effective interval reconstructed today does not prove historical knowledge. | Handle splits, cash distributions and terminal consideration explicitly; missing merger/spinoff/delisting economics remain flagged, never silently zero. |
-| Schedules | Require a preserved schedule announced before each as-of, including historical reschedules. Subsequent realized release times cannot be converted into ex-ante calendar features. | Not applicable. Exchange session calendars are a separate infrastructure component and cannot fill missing economic/earnings schedules. |
-
-## Access, cost, rights and alternative decisions
-
-No purchase, signup, credential use, or paid trial was performed. Credentials were not inspected. Consequently “unverified access” does not mean a known absent user subscription. No numeric price is frozen; paid access requires a separately reviewable scope and current entitlement check.
-
-| Provider/source | Access / rate status | Cost / license status | Why alternatives are not admitted |
-|---|---|---|---|
-| FRED/ALFRED | Registered key required; actual rate allowance/access unverified. Use bounded requests and pagination. | Public API; series-level third-party restrictions unresolved, especially credit/index data. | Latest FRED observations without explicit vintages fail revision safety. BLS only covers part of the basket. |
-| Eurostat | Public REST; free API; rate ceiling not established. | Reuse conditions/attribution require exact dataset verification. | Official documentation explicitly denies historical versioning. Authority alone does not confer PIT quality. |
-| ECB | API guide returned HTTP 503 through web tool; data access untested. | Public reference methodology inspected; API reuse/rate terms unverified. | No presumption that official rates represent executable prices or unchanged vintage history. |
-| MNB | Date-range GUI exists; service endpoint/rate ceiling unverified. | Download/reuse rights unverified; no charge observed or purchase made. | Current daily pages and unbounded annual downloads are not safe ingestion routes. |
-| SEC | Public JSON requires no authentication; date-specific archives are the selected design. Automated-access policy still applies; session verification of numeric limit incomplete. | Public access does not waive website policy or all embedded third-party rights. | Frames aggregate last-filed facts; companyfacts and current submissions can include forbidden later filings. None was fetched. |
-| EODHD | Token; documented free 20 calls/day restricted to past year. Full required universe history not verified accessible. | Paid historical products; personal/commercial license distinction; no purchase or assumed entitlement. | Demo coverage does not establish an investable universe. Adjustment and indicative-price caveats require source reconciliation. |
-| Alpha Vantage | API key; function/plan limits and safe date bounds must be verified individually. | Required historical entitlement and redistribution rights unverified. | Listing endpoint US-only; daily/fundamental APIs cannot be assumed date-bounded or revision-aware. |
-| ESEF/OAM/issuer archives | Per-jurisdiction access and timestamp retrieval unresolved. | Public format specification does not grant a unified licensed database. | Current normalized IFRS histories and US ADR subsets do not establish pan-EU PIT coverage. |
-| STOXX / index owners | Historical file guide found; access not tested. | Historical constituent/classification rights and cost unresolved. | Current constituent lists, latest sector labels and unlicensed mirrors rejected. |
-| Official / vendor calendars | BLS archived schedule identified; full advance-version retrieval unverified. | Agency page access is public; issuer/vendor rights vary and remain unchecked. | Current future calendars and realized event histories do not prove historical schedules. |
-
-## Primary evidence register
-
-Documentation describes capability; it does not certify acquired data. Pages published after 2023 were used only as current interface/methodology documentation. One interface document exposed lockbox-dated example observations incidentally; incident report is mandatory context.
-
-1. [FRED vintage-date API](https://fred.stlouisfed.org/docs/api/fred/series_vintagedates.html): inspected; revision/new-release dates and realtime range parameters.
-2. [FRED observations API](https://fred.stlouisfed.org/docs/api/fred/series_observations.html): discovered; bounded observation/realtime contract needs implementation verification.
-3. [FRED API keys](https://fred.stlouisfed.org/docs/api/api_key.html) and [BLS API signature](https://www.bls.gov/developers/api_signature_v2.htm): primary access documentation discovered/inspected; no data request.
-4. [Eurostat API introduction](https://ec.europa.eu/eurostat/web/user-guides/data-browser/api-data-access/api-introduction): inspected; explicitly latest datasets without past-version documentation; free REST.
-5. [ECB API data help](https://data.ecb.europa.eu/help/api/data): attempted; HTTP 503 through web retrieval, content unavailable.
-6. [EODHD EOD documentation](https://eodhd.com/financial-apis/api-for-historical-data-and-volumes): inspected; capability/adjustment/free-access statements; contains the incident response example.
-7. [Alpha Vantage documentation](https://www.alphavantage.co/documentation/): interface catalog and listing-status section inspected; other advertised functions not fully validated.
-8. [ECB reference-rate framework](https://www.ecb.europa.eu/stats/pdf/exchange/Frameworkfortheeuroforeignexchangereferencerates.en.pdf): current methodology inspected; informational reference, publication and correction policy; historical applicability unverified.
-9. [MNB exchange-rate query](https://www.mnb.hu/en/arfolyam-lekerdezes): date-range interface and currency-frequency metadata inspected; no rates query submitted.
-10. [SEC EDGAR APIs](https://www.sec.gov/search-filings/edgar-application-programming-interfaces): inspected; submissions/XBRL aggregation scope, updates and lack of authentication.
-11. [SEC accessing EDGAR](https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data): official archive/access documentation opened; archive ingestion not tested.
-12. [EODHD fundamentals documentation](https://eodhd.com/financial-apis/stock-etfs-fundamental-data-feeds): discovered only; field-level historical PIT semantics unverified.
-13. [ESMA electronic reporting](https://www.esma.europa.eu/issuer-disclosure/electronic-reporting): official framework opened; country/archive coverage not validated.
-14. [EODHD actions/bulk documentation](https://eodhd.com/financial-apis/bulk-api-eod-splits-dividends): discovered only; no bulk request made.
-15. [EODHD delisted data documentation](https://eodhd.com/financial-apis/delisted-stock-companies-data-2): discovered only.
-16. [EODHD historical components format](https://eodhd.com/financial-apis-blog/reworked-sp-500-historical-constituents): inspected documentation; membership response example also disclosed in incident report; no data endpoint followed.
-17. [STOXX index files guide](https://www.stoxx.com/documents/stoxxnet/Documents/News/2026/March/Index_Files_Guide_20260330.pdf): discovered only, not a verified historical entitlement.
-18. [BLS 2023 release schedule](https://www.bls.gov/schedule/2023/): discovered; no claim of archived ex-ante versions.
-
-## Gate outcome
-
-Task 0 domain evaluation is documented but full source freeze is BLOCKED. Before any further research: disclose/review the incident. After that gate, prospective work would require safe document extraction, verified bounded data contracts, credential/entitlement checks without purchase, pre-cutoff coverage samples, historical publication/revision evidence, and per-source rights checks. The source shortfalls must stay visible; no fixture test can turn these into validated real-data providers.
+No route presently closes the required US+EU stack. See the final report for
+domain-level blockers and paid-provider-escalation.md for purchase conditions.
+NOT_ESTABLISHED means no supporting evidence, not an inferred negative capability.
+UNSUPPORTED_FOR_PIT is scoped to the named route, never every product of a vendor.
+No current/latest financial data endpoint was queried; no new raw capture.

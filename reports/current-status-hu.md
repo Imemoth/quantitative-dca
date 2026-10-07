@@ -1,3 +1,10 @@
+> Aktuális lezárás: CASE A, az eredeti 52e56a4 visszanyerve. A provider-feasibility
+> értékelés review-ja lezárult; DCA_RESEARCH_GATE = BLOCKED_BY_DATA.
+> Admitted panel: 0 sor / 0 értékpapír; modell/OOS: 0/0; holdout: NOT_RUN.
+> Részletek: provider-feasibility-final.md és provider-feasibility-independent-reviews.md.
+
+> 2026-10-07: Superseded for current-phase feasibility by reports/provider-feasibility-final.md. DCA_RESEARCH_GATE remains BLOCKED_BY_DATA; no source admitted, no real proof panel, model/OOS 0/0, holdout NOT_RUN. Current access receipt: reports/provider-feasibility-access.json; incidental documentation exposure disclosed. Historical report follows unchanged.
+
 # V1 aktuális állapot — 2026-10-06
 
 Aktuális ág: `research/data-acquisition-admission-closure`, alap: `e58bf60`.
